@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ReactCompareImage from "react-compare-image";
-import Lightbox from "react-image-lightbox";
 import {
   RiStarSmileFill,
   RiWhatsappFill,
@@ -69,6 +68,21 @@ export default function HomePage() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsLightboxOpen(false);
+      if (e.key === "ArrowRight")
+        setLightboxIndex((prev) => (prev + 1) % filteredGallery.length);
+      if (e.key === "ArrowLeft")
+        setLightboxIndex(
+          (prev) => (prev + filteredGallery.length - 1) % filteredGallery.length
+        );
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isLightboxOpen, filteredGallery.length]);
 
   const heroStats = useMemo(
     () => [
@@ -384,30 +398,48 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        {isLightboxOpen && filteredGallery.length > 0 && (
-          <Lightbox
-            mainSrc={filteredGallery[lightboxIndex].src}
-            nextSrc={
-              filteredGallery[(lightboxIndex + 1) % filteredGallery.length].src
-            }
-            prevSrc={
-              filteredGallery[
-                (lightboxIndex + filteredGallery.length - 1) %
-                  filteredGallery.length
-              ].src
-            }
-            onCloseRequest={() => setIsLightboxOpen(false)}
-            onMovePrevRequest={() =>
+      {isLightboxOpen && filteredGallery.length > 0 && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center px-4">
+          <button
+            type="button"
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/10 text-text flex items-center justify-center hover:bg-white/20 transition"
+            aria-label="Close lightbox"
+          >
+            ✕
+          </button>
+          <button
+            type="button"
+            onClick={() =>
               setLightboxIndex(
                 (lightboxIndex + filteredGallery.length - 1) %
                   filteredGallery.length
               )
             }
-            onMoveNextRequest={() =>
+            className="absolute left-4 sm:left-10 h-10 w-10 rounded-full bg-white/10 text-text text-xl flex items-center justify-center hover:bg-white/20 transition"
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+          <div className="max-w-5xl w-full max-h-[80vh] rounded-2xl overflow-hidden border border-borderSubtle bg-primary/80 shadow-card">
+            <img
+              src={filteredGallery[lightboxIndex].src}
+              alt="Gallery large"
+              className="w-full h-full object-contain bg-black"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() =>
               setLightboxIndex((lightboxIndex + 1) % filteredGallery.length)
             }
-          />
-        )}
+            className="absolute right-4 sm:right-10 h-10 w-10 rounded-full bg-white/10 text-text text-xl flex items-center justify-center hover:bg-white/20 transition"
+            aria-label="Next image"
+          >
+            ›
+          </button>
+        </div>
+      )}
       </section>
 
       <SectionTitle
