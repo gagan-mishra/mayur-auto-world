@@ -3,7 +3,7 @@ import SectionTitle from '../components/SectionTitle'
 import { container } from '../shared/layout'
 import { inputClass } from '../shared/constants'
 import MagneticButton from '../components/MagneticButton'
-import { RiWhatsappFill, RiPhoneFill } from 'react-icons/ri'
+import { RiPhoneFill, RiMailFill } from 'react-icons/ri'
 
 export default function ContactPage() {
   return (
@@ -21,6 +21,23 @@ export default function ContactPage() {
             <MagneticButton className="w-full rounded-full bg-accent text-primary py-3 font-semibold hover:bg-accentHover transition-colors">
               Submit enquiry
             </MagneticButton>
+            <div className="rounded-2xl border border-borderSubtle bg-primary px-4 py-3 text-sm text-text-muted">
+              <div className="flex items-center gap-2">
+                <RiPhoneFill className="text-accent" />
+                <a href="tel:+918055464465" className="font-semibold text-text hover:text-accent transition">
+                  +91 80554 64465
+                </a>
+              </div>
+              <div className="mt-2 flex items-center gap-2">
+                <RiMailFill className="text-accent" />
+                <a
+                  href="mailto:mayurautoworld01@gmail.com"
+                  className="font-semibold text-text hover:text-accent transition"
+                >
+                  mayurautoworld01@gmail.com
+                </a>
+              </div>
+            </div>
             
           </div>
           <div className="rounded-3xl overflow-hidden border border-borderSubtle shadow-card">
