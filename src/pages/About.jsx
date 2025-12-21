@@ -126,7 +126,7 @@ export default function AboutPage() {
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center px-4"
           onClick={() => setIsNoteOpen(false)}
         >
-          <div className="relative max-w-6xl w-full max-h-[92vh] rounded-2xl overflow-hidden border border-borderSubtle shadow-card bg-black">
+          <div className="relative max-w-5xl w-full max-h-[96vh] rounded-2xl overflow-hidden border border-borderSubtle shadow-card bg-black p-3">
             <button
               type="button"
               onClick={() => setIsNoteOpen(false)}
@@ -134,7 +134,13 @@ export default function AboutPage() {
             >
               ✕
             </button>
-            <img src="/assets/founder-note.jpeg" alt="Founder note" className="w-full h-full object-contain" />
+            <div className="flex items-center justify-center h-full w-full">
+              <img
+                src="/assets/founder-note.jpeg"
+                alt="Founder note"
+                className="max-h-[90vh] max-w-full w-auto h-auto object-contain"
+              />
+            </div>
           </div>
         </div>
       )}

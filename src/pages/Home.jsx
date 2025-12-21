@@ -474,67 +474,22 @@ export default function HomePage() {
       </section>
 
       <SectionTitle
-        eyebrow="FAQs"
-        title="Answers before you visit"
-        tone="wide"
-      />
-      <section className={`${sectionRhythm[0]}`}>
-        <div
-          className={`${container} columns-1 md:columns-2 gap-5 [column-fill:_balance]`}
-        >
-          {faqs.map((item, idx) => (
-            <motion.div
-              key={item.q}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeIn}
-              transition={{ delay: idx * 0.04 }}
-              className="relative mb-5 break-inside-avoid overflow-hidden rounded-3xl border border-borderSubtle bg-soft/80 p-5 shadow-card"
-            >
-              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/10 blur-2xl" />
-              <div className="absolute left-0 top-0 h-1 w-16 bg-accent" />
-              <button
-                type="button"
-                onClick={() =>
-                  setOpenFaqs((prev) =>
-                    prev.includes(idx)
-                      ? prev.filter((i) => i !== idx)
-                      : [...prev, idx]
-                  )
-                }
-                className="relative flex w-full items-center gap-3 text-left"
-              >
-                <div className="h-8 w-8 flex items-center justify-center rounded-full bg-accent/20 text-accent font-bold text-sm shrink-0">
-                  {(idx + 1).toString().padStart(2, "0")}
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm uppercase tracking-[0.16em] text-text">
-                    {item.q}
-                  </p>
-                </div>
-                <RiArrowDownSLine
-                  className={`text-accent transition-transform ${
-                    openFaqs.includes(idx) ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {openFaqs.includes(idx) && (
-                <p className="mt-3 text-text-muted leading-relaxed">{item.a}</p>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <SectionTitle
         eyebrow="Contact"
         title="Book a slot or say hello"
         tone="wide"
       />
-      <section className="pb-20 pt-16">
+      <section className="bg-[#000000] pb-20 pt-16">
         <div className={`${container} grid lg:grid-cols-2 gap-6`}>
-          <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 space-y-4 shadow-card">
+          <video
+            className="h-full w-full rounded-3xl object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/assets/car-headlight.mp4" type="video/mp4" />
+          </video>
+          <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 space-y-4 shadow-card lg:ml-auto">
             <div className="grid grid-cols-2 gap-3">
               <input className={inputClass} placeholder="Name" />
               <input className={inputClass} placeholder="Phone" />
@@ -547,17 +502,6 @@ export default function HomePage() {
             <MagneticButton className="w-full rounded-full bg-accent text-primary py-3 font-semibold hover:bg-accentHover transition-colors">
               Submit enquiry
             </MagneticButton>
-          </div>
-          <div className="rounded-3xl overflow-hidden border border-borderSubtle shadow-card">
-            <iframe
-              title="Map"
-              src="https://www.google.com/maps?q=Mayur%20Auto%20World&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: 360 }}
-              allowFullScreen=""
-              loading="lazy"
-            />
           </div>
         </div>
       </section>

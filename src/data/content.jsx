@@ -189,7 +189,7 @@ export const beforeAfter = {
 
 export const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Car Seats', path: '/seats' },
+  { label: 'Seat Covers', path: '/seats' },
   { label: 'Services', path: '/services' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'About Us', path: '/about' },
