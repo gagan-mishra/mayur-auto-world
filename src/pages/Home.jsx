@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ReactCompareImage from "react-compare-image";
@@ -148,7 +148,7 @@ export default function HomePage() {
                 isMobile ? undefined : { duration: 0.5, ease: "easeOut" }
               }
               variants={fadeIn}
-              className="max-w-2xl space-y-3"
+              className="max-w-2xl space-y-3 text-[15px] sm:text-base"
             >
               <p className="text-sm uppercase tracking-[0.28em] text-text-muted">
                 Precision studio
@@ -172,7 +172,7 @@ export default function HomePage() {
                 isMobile ? undefined : { duration: 0.5, ease: "easeOut" }
               }
               variants={fadeIn}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl text-[15px] sm:text-base"
             >
               {heroStats.map((item, idx) => (
                 <div
@@ -300,7 +300,7 @@ export default function HomePage() {
               viewport={isMobile ? undefined : { once: true, amount: 0.2 }}
               variants={fadeIn}
               transition={isMobile ? undefined : { delay: idx * 0.05 }}
-              className="group relative overflow-hidden rounded-3xl border border-borderSubtle bg-soft/70 shadow-card text-left"
+              className="group relative overflow-hidden rounded-3xl border border-borderSubtle bg-soft/70 shadow-card text-left transition-transform duration-300 hover:-translate-y-1 hover:border-accent/70 focus:outline-none focus:ring-2 focus:ring-accent/60 active:scale-[0.99]"
               onClick={() => setSelectedService(service)}
             >
               <div className="relative h-56 overflow-hidden">
@@ -316,13 +316,19 @@ export default function HomePage() {
                 </span>
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-xl font-semibold flex items-center gap-2">
+                <h3 className="text-xl sm:text-[22px] font-semibold flex items-center gap-2">
                   {service.title}{" "}
                   <span className="h-0.5 w-6 bg-accent inline-block" />
                 </h3>
-                <p className="text-text-muted">{service.desc}</p>
-                <div className="flex items-center gap-2 text-sm text-text-muted">
-                  <RiCheckFill className="text-accent" /> Tap for inclusions
+                <p className="text-text-muted sm:text-base text-[15px]">{service.desc}</p>
+                <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text-muted">
+                  <RiCheckFill className="text-accent" /> Tap to view inclusions
+                </div>
+              </div>
+              <div className="absolute inset-0 pointer-events-none flex items-end justify-end p-3">
+                <div className="flex items-center gap-2 rounded-full bg-primary/80 border border-accent/70 px-3 py-1 text-[12px] font-semibold text-accent shadow-card opacity-70 group-hover:opacity-100 group-focus:opacity-100 animate-pulse-slow">
+                  <span className="h-2 w-2 rounded-full bg-accent animate-ping" />
+                  <span className="relative">Open details</span>
                 </div>
               </div>
             </motion.button>
@@ -556,12 +562,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {selectedService && (
-        <ServiceDrawer
-          service={selectedService}
-          onClose={() => setSelectedService(null)}
-        />
-      )}
+      <AnimatePresence>
+        {selectedService && (
+          <ServiceDrawer
+            service={selectedService}
+            onClose={() => setSelectedService(null)}
+            key={selectedService.title}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
