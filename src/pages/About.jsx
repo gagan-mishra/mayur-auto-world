@@ -29,7 +29,7 @@ export default function AboutPage() {
 function AboutCard({ title, text }) {
   return (
     <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-5 shadow-card">
-      <h4 className="text-lg font-semibold mb-2">{title}</h4>
+      <h4 className="text-lg sm:text-xl font-black tracking-wide mb-2">{title}</h4>
       <p className="text-text-muted leading-relaxed">{text}</p>
     </div>
   )

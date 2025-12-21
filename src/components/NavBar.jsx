@@ -31,7 +31,11 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                 }`
               }
               style={{ whiteSpace: 'nowrap' }}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => {
+                if (link.path === pathname) {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }
+              }}
             >
               {link.label}
             </NavLink>
@@ -92,7 +96,9 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                   }
                   onClick={() => {
                     setIsMenuOpen(false)
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                    if (link.path === pathname) {
+                      window.scrollTo({ top: 0, behavior: 'smooth' })
+                    }
                   }}
                 >
                   {link.label}

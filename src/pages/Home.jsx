@@ -148,12 +148,12 @@ export default function HomePage() {
                 isMobile ? undefined : { duration: 0.5, ease: "easeOut" }
               }
               variants={fadeIn}
-              className="max-w-2xl space-y-3 text-[15px] sm:text-base"
+              className="max-w-2xl space-y-3 text-[16px] sm:text-base font-semibold"
             >
               <p className="text-sm uppercase tracking-[0.28em] text-text-muted">
                 Precision studio
               </p>
-              <h1 className="text-3xl sm:text-5xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-wide">
                 Where your car feels brand new{" "}
                 <span className="text-accent">every day</span>
               </h1>
@@ -172,7 +172,7 @@ export default function HomePage() {
                 isMobile ? undefined : { duration: 0.5, ease: "easeOut" }
               }
               variants={fadeIn}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl text-[15px] sm:text-base"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl text-[16px] sm:text-base font-semibold"
             >
               {heroStats.map((item, idx) => (
                 <div
@@ -316,7 +316,7 @@ export default function HomePage() {
                 </span>
               </div>
               <div className="p-5 space-y-2">
-                <h3 className="text-xl sm:text-[22px] font-semibold flex items-center gap-2">
+                <h3 className="text-xl sm:text-[22px] font-black flex items-center gap-2 tracking-wide">
                   {service.title}{" "}
                   <span className="h-0.5 w-6 bg-accent inline-block" />
                 </h3>
