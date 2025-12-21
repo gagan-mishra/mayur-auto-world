@@ -179,6 +179,7 @@ export const faqs = [
 export const social = [
   { platform: 'Instagram', handle: '@mayur_autoworld', icon: <RiInstagramFill />, link: 'https://www.instagram.com/mayur_autoworld' },
   { platform: 'YouTube', handle: 'Build diaries & walkthroughs', icon: <RiYoutubeFill />, link: 'https://youtube.com/@mayurautoworld' },
+  { platform: 'Facebook', handle: 'Connect on Facebook', icon: <RiInstagramFill />, link: 'https://www.facebook.com' },
 ]
 
 export const beforeAfter = {
