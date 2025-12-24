@@ -128,7 +128,7 @@ export default function SeatCoverDrawer({ product, onClose }) {
                 const text = encodeURIComponent(
                   `Hi Mayur Auto World, I want a quote for ${product.name}. My car: [model]. Preferred color: [color].`,
                 )
-                window.open(`https://api.whatsapp.com/send?phone=918055464465&text=${text}`, '_blank')
+                window.open(`https://api.whatsapp.com/send?phone=919404984040&text=${text}`, '_blank')
               }}
             >
               Get Quote <RiWhatsappFill className="text-base" />
@@ -136,7 +136,7 @@ export default function SeatCoverDrawer({ product, onClose }) {
             <MagneticButton
               type="button"
               className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-borderSubtle px-4 py-2 text-sm font-semibold hover:border-accent transition-colors"
-              onClick={() => window.open('tel:+918055464465')}
+              onClick={() => window.open('tel:+919404984040')}
             >
               Talk to us
             </MagneticButton>

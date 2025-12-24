@@ -26,15 +26,9 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
               key={link.label}
               to={link.path}
               className={({ isActive }) =>
-                link.label === 'Body Cover'
-                  ? `group relative inline-flex items-center gap-2 px-2.5 py-1.5 text-sm font-semibold transition ${
-                      isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
-                    } after:content-[''] after:absolute after:left-2 after:right-2 after:-bottom-0.5 after:h-px after:bg-accent/0 after:transition after:duration-300 ${
-                      isActive ? 'after:bg-accent/70' : 'group-hover:after:bg-accent/70'
-                    }`
-                  : `transition-colors px-2.5 py-1.5 rounded-full text-sm ${
-                      isActive ? 'text-accent bg-soft/60 border border-borderSubtle' : 'hover:text-accent'
-                    }`
+                `transition-colors px-2.5 py-1.5 rounded-full text-sm ${
+                  isActive ? 'text-accent bg-soft/60 border border-borderSubtle' : 'hover:text-accent'
+                }`
               }
               style={{ whiteSpace: 'nowrap' }}
               onClick={() => {
@@ -43,9 +37,6 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                 }
               }}
             >
-              {link.label === 'Body Cover' && (
-                <span className="h-1.5 w-1.5 rounded-full bg-accent/70" />
-              )}
               {link.label}
             </NavLink>
           ))}
@@ -54,7 +45,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
           <MagneticButton
             type="button"
             className="flex items-center gap-2 rounded-full border border-accent bg-accent text-primary px-3.5 py-2 text-sm font-semibold hover:bg-accentHover transition-colors"
-            onClick={() => window.open('tel:+918055464465')}
+            onClick={() => window.open('tel:+919404984040')}
           >
             <RiPhoneFill /> Call
           </MagneticButton>
@@ -99,13 +90,9 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                   key={link.label}
                   to={link.path}
                   className={({ isActive }) =>
-                    link.label === 'Body Cover'
-                      ? `inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] transition ${
-                          isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
-                        }`
-                      : `block text-sm uppercase tracking-[0.2em] transition-colors ${
-                          isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
-                        }`
+                    `block text-sm uppercase tracking-[0.2em] transition-colors ${
+                      isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
+                    }`
                   }
                   onClick={() => {
                     setIsMenuOpen(false)
@@ -114,9 +101,6 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                     }
                   }}
                 >
-                  {link.label === 'Body Cover' && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent/70" />
-                  )}
                   {link.label}
                 </NavLink>
               ))}
@@ -124,7 +108,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                 <MagneticButton
                   type="button"
                   className="flex items-center gap-2 rounded-full border border-accent bg-accent text-primary px-4 py-2 text-sm font-semibold hover:bg-accentHover transition-colors"
-                  onClick={() => window.open('tel:+918055464465')}
+                  onClick={() => window.open('tel:+919404984040')}
                 >
                   <RiPhoneFill /> Call
                 </MagneticButton>

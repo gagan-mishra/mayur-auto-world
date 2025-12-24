@@ -24,17 +24,17 @@ export default function ContactPage() {
             <div className="rounded-2xl border border-borderSubtle bg-primary px-4 py-3 text-sm text-text-muted">
               <div className="flex items-center gap-2">
                 <RiPhoneFill className="text-accent" />
-                <a href="tel:+918055464465" className="font-semibold text-text hover:text-accent transition">
-                  +91 80554 64465
+                <a href="tel:+919404984040" className="font-semibold text-text hover:text-accent transition">
+                  +91 94049 84040
                 </a>
               </div>
               <div className="mt-2 flex items-center gap-2">
                 <RiMailFill className="text-accent" />
                 <a
-                  href="mailto:mayurautoworld01@gmail.com"
+                  href="mailto:mayur.pawar4040@gmail.com"
                   className="font-semibold text-text hover:text-accent transition"
                 >
-                  mayurautoworld01@gmail.com
+                  mayur.pawar4040@gmail.com
                 </a>
               </div>
             </div>

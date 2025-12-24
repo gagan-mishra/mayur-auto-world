@@ -72,7 +72,7 @@ export default function ServiceDrawer({ service, onClose }) {
                 const text = encodeURIComponent(
                   `Hi Mayur Auto World, I want a quote for ${service.title}. My car: [model]. Preferred date: [date].`,
                 )
-                window.open(`https://api.whatsapp.com/send?phone=918055464465&text=${text}`, '_blank')
+                window.open(`https://api.whatsapp.com/send?phone=919404984040&text=${text}`, '_blank')
               }}
             >
               Get Quote
@@ -81,7 +81,7 @@ export default function ServiceDrawer({ service, onClose }) {
               type="button"
               className="flex-1 rounded-full border border-borderSubtle px-4 py-3 font-semibold hover:border-accent transition-colors"
               onClick={() => {
-                window.open('tel:+918055464465')
+                window.open('tel:+919404984040')
               }}
             >
               Talk to us

@@ -1,7 +1,7 @@
 import React from 'react'
-import ReactCompareImage from 'react-compare-image'
 import { RiArrowRightUpLine, RiWhatsappFill } from 'react-icons/ri'
 import SectionTitle from '../components/SectionTitle'
+import CompareSlider from '../components/CompareSlider'
 import { beforeAfter } from '../data/content'
 import { container, sectionRhythm } from '../shared/layout'
 
@@ -67,7 +67,7 @@ export default function BodyCoverPage() {
               protection with a soft liner, breathable fabric, and secure fit.
             </p>
             <a
-              href="https://api.whatsapp.com/send?phone=918055464465&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20body%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
+              href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20body%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-primary transition hover:bg-accentHover"
@@ -164,16 +164,8 @@ export default function BodyCoverPage() {
       />
       <section className={`${sectionRhythm[0]} border-b border-borderSubtle/60`}>
         <div className={`${container} grid lg:grid-cols-[1.1fr,0.9fr] gap-6 items-center`}>
-          <div className="rounded-3xl border border-borderSubtle bg-soft/70 shadow-card overflow-hidden">
-            <ReactCompareImage
-              leftImage={beforeAfter.before}
-              rightImage={beforeAfter.after}
-              sliderLineColor="#F3C041"
-              handleSize={44}
-              leftImageLabel="Before"
-              rightImageLabel="After"
-              hover={true}
-            />
+          <div className="rounded-3xl border border-borderSubtle bg-soft/70 shadow-card overflow-hidden compare-pan-x">
+            <CompareSlider beforeSrc={beforeAfter.before} afterSrc={beforeAfter.after} />
           </div>
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.22em] text-accent">
@@ -200,7 +192,7 @@ export default function BodyCoverPage() {
           {vehicleTypes.map((type) => (
             <a
               key={type.label}
-              href={`https://api.whatsapp.com/send?phone=918055464465&text=${encodeURIComponent(
+              href={`https://api.whatsapp.com/send?phone=919404984040&text=${encodeURIComponent(
                 `Hi Mayur Auto World, I want a body cover for my ${type.detail}. Please share sizing and pricing.`,
               )}`}
               target="_blank"
@@ -237,7 +229,7 @@ export default function BodyCoverPage() {
               </p>
             </div>
             <a
-              href="https://api.whatsapp.com/send?phone=918055464465&text=Hi%20Mayur%20Auto%20World%2C%20I%20need%20help%20choosing%20the%20right%20body%20cover%20for%20my%20car.%20Please%20advise."
+              href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20need%20help%20choosing%20the%20right%20body%20cover%20for%20my%20car.%20Please%20advise."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-primary transition hover:bg-accentHover"

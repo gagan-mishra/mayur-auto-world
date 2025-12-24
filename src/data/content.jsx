@@ -29,7 +29,7 @@ export const homeServices = [
     title: 'Body Cover',
     desc: 'Breathable, paint-safe covers for indoor/outdoor storage.',
     icon: <RiSparkling2Fill className="text-text" />,
-    image: '/assets/car-cover.jpeg',
+    image: '/assets/car-cover-service.jpeg',
     inclusions: ['Custom sizing', 'Soft liner', 'UV + dust protection', 'Tie-downs', 'Logo placement'],
   },
   {
@@ -106,13 +106,23 @@ export const processShots = [
 ]
 
 export const galleryItems = [
-  { src: 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1400&h=1000&fit=crop', category: 'PPF' },
-  { src: 'https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1400&h=1200&fit=crop', category: 'Detailing' },
-  { src: 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1400&h=900&fit=crop', category: 'Detailing' },
-  { src: 'https://images.pexels.com/photos/105234/pexels-photo-105234.jpeg?auto=compress&cs=tinysrgb&w=1400&h=1100&fit=crop', category: 'Interior' },
-  { src: 'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=1400&h=950&fit=crop', category: 'PPF' },
-  { src: 'https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=1400&h=1050&fit=crop', category: 'Alloys' },
-  { src: 'https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=1400&h=980&fit=crop', category: 'Alloys' },
+  { src: '/assets/gallery/gallery12.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery13.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery14.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery7.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery2.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery16.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery17.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery6.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery1.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery4.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery18.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery15.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery11.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery8.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery9.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery19.jpeg', category: 'Gallery' },
+  { src: '/assets/gallery/gallery3.jpeg', category: 'Gallery' },
 ]
 
 export const transformations = [
@@ -134,40 +144,7 @@ export const transformations = [
 
 export const brands = ['Xpel / SunTek films', 'Gyeon / Gtechniq coatings', 'Koch-Chemie prep', 'Swissvax interiors', '3M Pro tools']
 
-export const faqs = [
-  {
-    q: 'What services do you offer?',
-    a: 'Professional car care and detailing: premium wash, interior cleaning, ceramic/graphene coating, paint protection, scratch removal, alloy & tyre care, headlight restoration, and interior accessories. (Services vary by vehicle and package.)',
-  },
-  {
-    q: 'How do I book a service?',
-    a: 'Call or WhatsApp us, submit the website enquiry form, or visit our workshop. We’ll confirm and schedule quickly.',
-  },
-  {
-    q: 'Do you provide warranties?',
-    a: 'Yes. Warranty depends on the service or product (e.g., coatings, accessories). Terms are explained upfront—no surprises.',
-  },
-  {
-    q: 'What payment methods are accepted?',
-    a: 'Cash, UPI, debit/credit cards, and bank transfer.',
-  },
-  {
-    q: 'Can I reschedule or cancel?',
-    a: 'Yes. Please inform us at least 24 hours in advance.',
-  },
-  {
-    q: 'Do you offer discounts?',
-    a: 'Occasional offers on select services. Check with us or our social pages for current deals.',
-  },
-  {
-    q: 'Can you match my car’s paint color?',
-    a: 'Yes. We use manufacturer codes and shade matching. Minor variations can occur due to aging or sun exposure, but the finish is visually seamless.',
-  },
-  {
-    q: 'Can services be customized?',
-    a: 'Yes. We tailor services to your car’s condition, usage, and budget—no unnecessary upselling.',
-  },
-]
+
 
 export const social = [
   { platform: 'Instagram', handle: '@mayur_autoworld', icon: <RiInstagramFill />, link: 'https://www.instagram.com/mayur_autoworld' },
@@ -187,5 +164,4 @@ export const navLinks = [
   { label: 'Gallery', path: '/gallery' },
   { label: 'About Us', path: '/about' },
   { label: 'Contact Us', path: '/contact' },
-  { label: 'Join Us', path: '/join' },
 ]
