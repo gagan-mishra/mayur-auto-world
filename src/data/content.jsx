@@ -36,7 +36,7 @@ export const homeServices = [
     title: 'Body Shop Denting & Painting',
     desc: 'Color-matched repairs with OEM-grade finish and glossy clear.',
     icon: <RiPaintFill className="text-text" />,
-    image: '/assets/denting-and-painting.png',
+    image: '/assets/gallery/gallery8.jpeg',
     inclusions: ['Panel prep + filling', 'Color matching', 'Baked clear coat', 'Insurance-friendly estimates', 'Post-paint polish'],
   },
 ]

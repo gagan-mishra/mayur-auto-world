@@ -12,10 +12,9 @@ import {
   RiArrowRightUpLine,
 } from "react-icons/ri";
 import SectionTitle from "../components/SectionTitle";
-import CompareSlider from "../components/CompareSlider";
 import MagneticButton from "../components/MagneticButton";
 import ServiceDrawer from "../components/ServiceDrawer";
-import { homeServices, trustBar, transformations, brands, social } from "../data/content";
+import { homeServices, trustBar, social } from "../data/content";
 import { container, sectionRhythm } from "../shared/layout";
 import { fadeIn, inputClass } from "../shared/constants";
 
@@ -27,24 +26,15 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
 
 
-  const movingBrands = useMemo(
-    () => [
-      { name: "AUTO FORM", src: "/assets/autoform.jpeg" },
-      { name: "AUTO CRUZE", src: "/assets/autocruze.jpeg" },
-      { name: "TURTLE WAX", src: "/assets/turtlewax.jpeg" },
-    ],
-    []
-  );
-
   const safetySlides = useMemo(
     () => [
-      { label: "Studio exterior", image: "/assets/hero-bg.jpeg" },
-      { label: "Body cover", image: "/assets/car-cover-service.jpeg" },
-      { label: "Graphic coating", image: "/assets/graphic%20coating.jpeg" },
-      {
-        label: "Denting & painting",
-        image: "/assets/denting-and-painting.png",
-      },
+      { image: "/assets/gallery/gallery12.jpeg" },
+      { image: "/assets/gallery/gallery13.jpeg" },
+      { image: "/assets/gallery/gallery14.jpeg" },
+      { image: "/assets/gallery/gallery2.jpeg" },
+      { image: "/assets/gallery/gallery4.jpeg" },
+      { image: "/assets/gallery/gallery7.jpeg" },
+      { image: "/assets/gallery/gallery19.jpeg" },
     ],
     []
   );
@@ -164,45 +154,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={`${sectionRhythm[1]}`}>
-        <div className={`${container} space-y-6`}>
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.24em] text-accent">
-                Trusted brands
-              </p>
-              <p className="text-lg font-semibold text-text">
-                Products we install every day
-              </p>
-            </div>
-            <div className="rounded-full bg-soft/50 px-4 py-2 text-xs uppercase tracking-[0.2em] text-text-muted">
-              OEM-grade materials only
-            </div>
-          </div>
-          <div className="relative py-6">
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-              {movingBrands.map((brand, idx) => (
-                <div
-                  key={brand.name}
-                  className="brand-float flex items-center gap-4 rounded-full bg-primary/65 px-7 py-4 shadow-card"
-                  style={{ animationDelay: `${idx * 0.35}s` }}
-                >
-                  <img
-                    src={brand.src}
-                    alt={brand.name}
-                    className="brand-marquee-logo"
-                    loading="lazy"
-                  />
-                  <span className="text-xs uppercase tracking-[0.2em] text-text-muted">
-                    {brand.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section
         className={`${sectionRhythm[1]} border-b border-borderSubtle/60`}
       >
@@ -219,7 +170,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SectionTitle
+
+      <SectionTitle eyebrow="Services" title="What we do" tone="wide" />
+      <section className={`${sectionRhythm[0]}`}>
+        <div className={`${container} grid md:grid-cols-2 gap-6`}>
+          {homeServices.map((service, idx) => (
+            <motion.button
+              key={service.title}
+              type="button"
+              initial={isMobile ? "show" : "hidden"}
+              animate={isMobile ? "show" : undefined}
+              whileInView={isMobile ? undefined : "show"}
+              viewport={isMobile ? undefined : { once: true, amount: 0.2 }}
+              variants={fadeIn}
+              transition={isMobile ? undefined : { delay: idx * 0.05 }}
+              className="group relative overflow-hidden rounded-3xl border border-borderSubtle bg-soft/70 shadow-card text-left transition-transform duration-300 hover:-translate-y-1 hover:border-accent/70 focus:outline-none focus:ring-2 focus:ring-accent/60 active:scale-[0.99]"
+              onClick={() => setSelectedService(service)}
+            >
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/60" />
+              </div>
+              <div className="p-5 space-y-2">
+                <h3 className="text-xl sm:text-[22px] font-black flex items-center gap-2 tracking-wide">
+                  {service.title}{" "}
+                  <span className="h-0.5 w-6 bg-accent inline-block" />
+                </h3>
+                <p className="text-text-muted sm:text-base text-[15px]">{service.desc}</p>
+                <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text-muted">
+                  <RiCheckFill className="text-accent" /> Tap to view inclusions
+                </div>
+              </div>
+              <div className="absolute inset-0 pointer-events-none flex items-end justify-end p-3">
+                <div className="flex items-center gap-2 rounded-full bg-primary/80 border border-accent/70 px-3 py-1 text-[12px] font-semibold text-accent shadow-card opacity-70 group-hover:opacity-100 group-focus:opacity-100 animate-pulse-slow">
+                  <span className="h-2 w-2 rounded-full bg-accent animate-ping" />
+                  <span className="relative">Open details</span>
+                </div>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </section>
+
+      
+      
+
+
+<SectionTitle
         eyebrow="Body Cover"
         title="Protection when your car is parked"
         tone="wide"
@@ -315,10 +316,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between gap-3 mb-4">
             <div>
               <p className="text-xs uppercase tracking-[0.24em] text-accent">
-                Safety & care
-              </p>
-              <p className="text-lg font-semibold text-text">
-                Essentials we stand by
+                Store visit
               </p>
             </div>
             <div className="hidden sm:flex items-center gap-2">
@@ -340,7 +338,7 @@ export default function HomePage() {
             <Swiper
               modules={[Navigation, Autoplay]}
               navigation={{ prevEl: ".safety-prev", nextEl: ".safety-next" }}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
+              autoplay={{ delay: 1200, disableOnInteraction: false }}
               spaceBetween={16}
               slidesPerView={1.05}
               breakpoints={{
@@ -361,9 +359,6 @@ export default function HomePage() {
                         loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
-                      <span className="absolute bottom-3 left-3 rounded-full bg-primary/80 px-3 py-1 text-xs uppercase tracking-[0.2em] text-text">
-                        {slide.label}
-                      </span>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -387,86 +382,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SectionTitle eyebrow="Services" title="What we do" tone="wide" />
-      <section className={`${sectionRhythm[0]}`}>
-        <div className={`${container} grid md:grid-cols-2 gap-6`}>
-          {homeServices.map((service, idx) => (
-            <motion.button
-              key={service.title}
-              type="button"
-              initial={isMobile ? "show" : "hidden"}
-              animate={isMobile ? "show" : undefined}
-              whileInView={isMobile ? undefined : "show"}
-              viewport={isMobile ? undefined : { once: true, amount: 0.2 }}
-              variants={fadeIn}
-              transition={isMobile ? undefined : { delay: idx * 0.05 }}
-              className="group relative overflow-hidden rounded-3xl border border-borderSubtle bg-soft/70 shadow-card text-left transition-transform duration-300 hover:-translate-y-1 hover:border-accent/70 focus:outline-none focus:ring-2 focus:ring-accent/60 active:scale-[0.99]"
-              onClick={() => setSelectedService(service)}
-            >
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/60" />
-              </div>
-              <div className="p-5 space-y-2">
-                <h3 className="text-xl sm:text-[22px] font-black flex items-center gap-2 tracking-wide">
-                  {service.title}{" "}
-                  <span className="h-0.5 w-6 bg-accent inline-block" />
-                </h3>
-                <p className="text-text-muted sm:text-base text-[15px]">{service.desc}</p>
-                <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text-muted">
-                  <RiCheckFill className="text-accent" /> Tap to view inclusions
-                </div>
-              </div>
-              <div className="absolute inset-0 pointer-events-none flex items-end justify-end p-3">
-                <div className="flex items-center gap-2 rounded-full bg-primary/80 border border-accent/70 px-3 py-1 text-[12px] font-semibold text-accent shadow-card opacity-70 group-hover:opacity-100 group-focus:opacity-100 animate-pulse-slow">
-                  <span className="h-2 w-2 rounded-full bg-accent animate-ping" />
-                  <span className="relative">Open details</span>
-                </div>
-              </div>
-            </motion.button>
-          ))}
-        </div>
-      </section>
-
-      <SectionTitle
-        eyebrow="Transformations"
-        title="Case studies: finish and function"
-        tone="wide"
-      />
-      <section className={`${sectionRhythm[0]}`}>
-        <div className={`${container} grid md:grid-cols-2 gap-6`}>
-          {transformations.map((item, idx) => (
-            <motion.div
-              key={item.car}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={fadeIn}
-              transition={{ delay: idx * 0.05 }}
-              className="rounded-3xl border border-borderSubtle bg-soft/70 shadow-card overflow-hidden"
-            >
-                  <div className="p-5 space-y-2">
-                    <p className="text-xs uppercase tracking-[0.22em] text-accent">
-                      Case file
-                    </p>
-                    <p className="text-text-muted">{item.work}</p>
-                  </div>
-              <div className="p-5 pt-0">
-                <div className="rounded-2xl overflow-hidden border border-borderSubtle compare-pan-x">
-                  <CompareSlider beforeSrc={item.before} afterSrc={item.after} />
-                </div>
-                <p className="text-sm text-text-muted mt-3">{item.notes}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      
       <section className={`${sectionRhythm[0]}`}>
         <div className={`${container} space-y-4`}>
           <div className="flex items-center justify-between gap-3">
@@ -503,7 +418,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <SectionTitle
+
+<SectionTitle
         eyebrow="Contact"
         title="Book a slot or say hello"
         tone="wide"

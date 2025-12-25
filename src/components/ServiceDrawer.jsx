@@ -12,20 +12,31 @@ export default function ServiceDrawer({ service, onClose }) {
   }, [service, y])
 
   useEffect(() => {
+    const scrollY = window.scrollY
     const prevHtmlOverflow = document.documentElement.style.overflow
     const prevBodyOverflow = document.body.style.overflow
+    const prevBodyPosition = document.body.style.position
+    const prevBodyTop = document.body.style.top
+    const prevBodyWidth = document.body.style.width
     document.documentElement.style.overflow = 'hidden'
     document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = '100%'
     return () => {
       document.documentElement.style.overflow = prevHtmlOverflow
       document.body.style.overflow = prevBodyOverflow
+      document.body.style.position = prevBodyPosition
+      document.body.style.top = prevBodyTop
+      document.body.style.width = prevBodyWidth
+      window.scrollTo(0, scrollY)
     }
   }, [])
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <motion.div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm touch-none overscroll-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -37,7 +48,7 @@ export default function ServiceDrawer({ service, onClose }) {
         animate={{ x: 0 }}
         exit={{ x: '100%' }}
         transition={{ type: 'spring', stiffness: 140, damping: 18 }}
-        className="relative w-full max-w-lg h-full bg-primary border-l border-borderSubtle shadow-2xl overflow-y-auto"
+        className="relative w-full max-w-lg h-full bg-primary border-l border-borderSubtle shadow-2xl overflow-y-auto overscroll-contain"
         style={{ y: ySpring }}
       >
         <div className="p-6 space-y-4">

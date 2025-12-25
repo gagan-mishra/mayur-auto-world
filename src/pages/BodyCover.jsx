@@ -1,8 +1,6 @@
 import React from 'react'
 import { RiArrowRightUpLine, RiWhatsappFill } from 'react-icons/ri'
 import SectionTitle from '../components/SectionTitle'
-import CompareSlider from '../components/CompareSlider'
-import { beforeAfter } from '../data/content'
 import { container, sectionRhythm } from '../shared/layout'
 
 const useCases = [
@@ -154,31 +152,6 @@ export default function BodyCoverPage() {
               )}
             </React.Fragment>
           ))}
-        </div>
-      </section>
-
-      <SectionTitle
-        eyebrow="Before / After"
-        title="See the difference in care"
-        tone="wide"
-      />
-      <section className={`${sectionRhythm[0]} border-b border-borderSubtle/60`}>
-        <div className={`${container} grid lg:grid-cols-[1.1fr,0.9fr] gap-6 items-center`}>
-          <div className="rounded-3xl border border-borderSubtle bg-soft/70 shadow-card overflow-hidden compare-pan-x">
-            <CompareSlider beforeSrc={beforeAfter.before} afterSrc={beforeAfter.after} />
-          </div>
-          <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.22em] text-accent">
-              Protection matters
-            </p>
-            <h3 className="text-2xl sm:text-3xl font-black">
-              Cleaner paint, less dust, and fewer micro-scratches.
-            </h3>
-            <p className="text-text-muted">
-              A quality cover keeps the finish clean and the cabin cooler,
-              especially for vehicles parked outdoors.
-            </p>
-          </div>
         </div>
       </section>
 
