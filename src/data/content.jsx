@@ -19,7 +19,7 @@ export const homeServices = [
     inclusions: ['Foam wash + decon', 'Interior steam', 'Trim dressing', 'Glass clarity', 'Fragrance + protectants'],
   },
   {
-    title: 'Ceramic & Graphic Coating',
+    title: 'Ceramic & Graphene Coating',
     desc: 'Long-term gloss, hydrophobic protection, and safe graphics underneath.',
     icon: <RiShieldStarFill className="text-text" />,
     image: '/assets/graphic%20coating.jpeg',
