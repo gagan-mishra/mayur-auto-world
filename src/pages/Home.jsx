@@ -302,7 +302,7 @@ export default function HomePage() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-borderSubtle bg-soft/70 px-5 py-3 text-sm font-semibold text-text transition hover:border-accent/70 hover:text-accent"
               >
-                WhatsApp car cover <RiWhatsappFill />
+                Get Quote <RiWhatsappFill />
               </a>
             </div>
           </motion.div>

@@ -62,7 +62,7 @@ export default function BodyCoverPage() {
       <section className="relative overflow-hidden bg-[#050505]">
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#050505] to-black/80" />
         <div className="absolute inset-0 fabric-texture opacity-50" />
-        <div className={`${container} relative pt-14 sm:pt-20 pb-0`}>
+        <div className={`${container} relative pt-14 sm:pt-20 pb-10 sm:pb-14`}>
           <div className="max-w-2xl space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">
               Car Cover

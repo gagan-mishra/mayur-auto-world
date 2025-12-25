@@ -114,44 +114,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-16 border-t border-borderSubtle/60">
-        <div
-          className={`${container} flex flex-col md:flex-row items-center gap-4 md:gap-6`}
-        >
-          <div className="flex-1 space-y-2">
-            <p className="text-sm uppercase tracking-[0.24em] text-accent">
-              Ready to talk
-            </p>
-            <h3 className="text-2xl font-black tracking-wide">
-              Let’s plan your car’s next chapter
-            </h3>
-            <p className="text-text-muted">
-              Direct line to the studio. Quick answers on services, timelines,
-              and aftercare.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <MagneticButton
-              className="rounded-full border border-accent text-text px-5 py-3 font-semibold hover:bg-accent/10 transition-colors"
-              onClick={() =>
-                window.open(
-                  "https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20to%20discuss%20my%20car%20and%20book%20a%20slot.",
-                  "_blank"
-                )
-              }
-            >
-              WhatsApp
-            </MagneticButton>
-            <MagneticButton
-              className="rounded-full border border-borderSubtle text-text px-5 py-3 font-semibold hover:border-accent transition-colors"
-              onClick={() => window.open("tel:+919404984040")}
-            >
-              Call
-            </MagneticButton>
-          </div>
-        </div>
-      </section>
-
       {isNoteOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center px-4"
