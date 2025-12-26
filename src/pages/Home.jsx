@@ -1,5 +1,6 @@
 ﻿import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useForm, ValidationError } from "@formspree/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { NavLink } from "react-router-dom";
@@ -10,10 +11,12 @@ import {
   RiCheckFill,
   RiArrowDownSLine,
   RiArrowRightUpLine,
+  RiInstagramFill,
 } from "react-icons/ri";
 import SectionTitle from "../components/SectionTitle";
 import MagneticButton from "../components/MagneticButton";
 import ServiceDrawer from "../components/ServiceDrawer";
+import InstagramEmbed from "../components/InstagramEmbed";
 import { homeServices, trustBar, social } from "../data/content";
 import { container, sectionRhythm } from "../shared/layout";
 import { fadeIn, inputClass } from "../shared/constants";
@@ -24,6 +27,7 @@ export default function HomePage() {
   const rafRef = useRef(null);
   const [openFaqs, setOpenFaqs] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [state, handleSubmit] = useForm("xqekkpbj");
 
 
   const safetySlides = useMemo(
@@ -394,12 +398,11 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="videos-scroll flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-4">
+          <div className="videos-scroll flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-3">
             {[
-              "https://www.youtube.com/embed/QH8Hbpya1eo",
-              "https://www.youtube.com/embed/Np_qa64770s",
-              "https://www.youtube.com/embed/m45SBDKfyqI",
-              "https://www.youtube.com/embed/3Fxk5RlB_ls",
+              "https://www.youtube.com/embed/F4ZKi55_A2M",
+              "https://www.youtube.com/embed/voCLD598GJM",
+              "https://www.youtube.com/embed/XDlMrVwobrk",
             ].map((src) => (
               <div
                 key={src}
@@ -419,6 +422,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="pb-16">
+        <div className={`${container}`}>
+          <div className="w-full rounded-3xl border border-borderSubtle/70 bg-gradient-to-r from-[#0b0b0b] via-[#111111] to-[#0c0c0c] px-6 py-6 sm:px-8 sm:py-8 space-y-5">
+            <div className="inline-flex items-center gap-2 text-text-muted text-sm">
+              <RiInstagramFill className="text-accent" />
+              <span className="uppercase tracking-[0.22em] text-xs">From our Instagram</span>
+            </div>
+            <div className="flex justify-center">
+              <div className="videos-scroll reels-scroll flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-3 w-full">
+                {[
+                  "https://www.instagram.com/reel/DQ_S-W_kiuY/?igsh=MmdxM2xqa3Vub2tu",
+                  "https://www.instagram.com/reel/DSTwgOxEj1t/?igsh=MW5wN2hhYXFtdjZuYQ==",
+                  "https://www.instagram.com/reel/DSUowHTCAwC/?igsh=eXJnaHQwa2Z6MW5o",
+                ].map((permalink) => (
+                  <div
+                    key={permalink}
+                    className="insta-embed-tile snap-start w-[70vw] max-w-[320px] flex-shrink-0 sm:w-auto sm:max-w-none"
+                  >
+                    <InstagramEmbed permalink={permalink} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 <SectionTitle
         eyebrow="Contact"
         title="Book a slot or say hello"
@@ -435,22 +464,40 @@ export default function HomePage() {
           >
             <source src="/assets/car-headlight.mp4" type="video/mp4" />
           </video>
-          <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 space-y-4 shadow-card lg:ml-auto">
-            <div className="grid grid-cols-2 gap-3">
-              <input className={inputClass} placeholder="Name" />
-              <input className={inputClass} placeholder="Phone" />
-            </div>
-            <input className={inputClass} placeholder="Email" />
-            <textarea
-              className={`${inputClass} min-h-[120px]`}
-              placeholder="What do you need? (detailing, PPF, interior...)"
-            />
-            <MagneticButton className="w-full rounded-full bg-accent text-primary py-3 font-semibold hover:bg-accentHover transition-colors">
-              Submit enquiry
-            </MagneticButton>
+          <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 shadow-card lg:ml-auto">
+            {state.succeeded ? (
+              <div className="text-center py-10">
+                <p className="text-lg font-semibold text-text">Thanks for reaching out.</p>
+                <p className="text-text-muted mt-2">We will get back to you shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <input className={inputClass} name="name" placeholder="Name" />
+                  <input className={inputClass} name="phone" placeholder="Phone" />
+                </div>
+                <input className={inputClass} id="email" name="email" type="email" placeholder="Email" />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                <textarea
+                  className={`${inputClass} min-h-[120px]`}
+                  id="message"
+                  name="message"
+                  placeholder="What do you need? (detailing, PPF, interior...)"
+                />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
+                <MagneticButton
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full rounded-full bg-accent text-primary py-3 font-semibold hover:bg-accentHover transition-colors disabled:opacity-60"
+                >
+                  Submit enquiry
+                </MagneticButton>
+              </form>
+            )}
           </div>
         </div>
       </section>
+
 
       <AnimatePresence>
         {selectedService && (

@@ -623,6 +623,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.reels-scroll {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+}
+
 .tilt-card {
   transform-style: preserve-3d;
   transition: box-shadow 0.25s ease;
@@ -705,6 +710,36 @@ body {
 .cover-hotspot-card.is-active {
   opacity: 1;
   transform: translate(16px, -50%);
+}
+
+.insta-embed-tile {
+  aspect-ratio: 9 / 16;
+  min-height: 520px;
+  max-width: 360px;
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b0b0b;
+  padding: 0.4rem;
+  overflow: hidden;
+}
+
+.insta-embed {
+  height: 100%;
+  width: 100%;
+  background: #0b0b0b;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.insta-embed * {
+  background-color: transparent;
+}
+
+@media (min-width: 640px) {
+  .insta-embed-tile {
+    min-height: 580px;
+  }
 }
 
 @media (max-width: 640px) {
