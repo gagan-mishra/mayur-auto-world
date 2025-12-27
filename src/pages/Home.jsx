@@ -27,7 +27,6 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [state, handleSubmit] = useForm("xqekkpbj");
 
-
   const safetySlides = useMemo(
     () => [
       { image: "/assets/gallery/gallery12.jpeg" },
@@ -74,19 +73,26 @@ export default function HomePage() {
     };
   }, []);
 
-
   const heroStats = useMemo(
     () => [
       {
-        label: "Premium Detailing",
+        label: "Car Body Covers & PPF",
         icon: <RiStarSmileFill className="text-text" />,
       },
       {
-        label: "Certified PPF Installers",
+        label: "Premium Seat Covers",
         icon: <RiStarSmileFill className="text-text" />,
       },
       {
-        label: "Same-day Slots",
+        label: "Car Accessories & Fitment",
+        icon: <RiStarSmileFill className="text-text" />,
+      },
+      {
+        label: "Genuine Products",
+        icon: <RiStarSmileFill className="text-text" />,
+      },
+      {
+        label: "Expert Support",
         icon: <RiStarSmileFill className="text-text" />,
       },
     ],
@@ -115,7 +121,7 @@ export default function HomePage() {
               className="max-w-2xl space-y-3 text-[16px] sm:text-base font-semibold"
             >
               <p className="text-sm uppercase tracking-[0.28em] text-text-muted">
-                Precision studio
+                Protection Studio
               </p>
               <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-wide">
                 Where your car feels brand new{" "}
@@ -123,8 +129,9 @@ export default function HomePage() {
               </h1>
               <div className="h-0.5 w-16 bg-accent" />
               <p className="text-text-muted text-base sm:text-lg">
-                Ceramic, self-healing PPF, and deep interior revival built for
-                performance and luxury owners who demand no-compromise work.
+                Everything Your Car Needs - From car
+                body cover and seat covers to PPF and accessories, we help you
+                protect, upgrade, and personalize your car the right way.
               </p>
             </motion.div>
             <motion.div
@@ -172,6 +179,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section
+        className={`${sectionRhythm[0]} border-b border-borderSubtle/60`}
+      >
+        <div className={`${container} space-y-4`}>
+          <div>
+            <p className="text-xs uppercase tracking-[0.24em] text-accent">
+              Trusted partner
+            </p>
+            <p className="text-lg font-semibold text-text">
+              Autoform seat covers, selected for precise fit and finish
+            </p>
+          </div>
+          <div className="w-full border-y border-borderSubtle/60 bg-[#000000] py-6">
+            <div
+              className={`${container} grid gap-14 md:grid-cols-[0.6fr,1fr] items-center`}
+            >
+              <div className="w-full max-w-xs sm:max-w-sm md:pr-6">
+                <img
+                  src="/assets/autoform2.png"
+                  alt="Autoform"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+              <div className="space-y-3 text-text-muted">
+                {[
+                  "OEM-grade fit that aligns to factory seat geometry.",
+                  "Airbag-safe seams built for modern safety systems.",
+                  "Long-term durability with consistent stitch quality.",
+                ].map((line) => (
+                  <div key={line} className="flex items-start gap-3">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                    <p>{line}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <SectionTitle eyebrow="Services" title="What we do" tone="wide" />
       <section className={`${sectionRhythm[0]}`}>
@@ -202,7 +248,9 @@ export default function HomePage() {
                   {service.title}{" "}
                   <span className="h-0.5 w-6 bg-accent inline-block" />
                 </h3>
-                <p className="text-text-muted sm:text-base text-[15px]">{service.desc}</p>
+                <p className="text-text-muted sm:text-base text-[15px]">
+                  {service.desc}
+                </p>
                 <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text-muted">
                   <RiCheckFill className="text-accent" /> Tap to view inclusions
                 </div>
@@ -218,12 +266,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      
-      
-
-
-<SectionTitle
-        eyebrow="Car Cover"
+      <SectionTitle
+        eyebrow="Car Body Cover"
         title="Protection when your car is parked"
         tone="wide"
       />
@@ -241,7 +285,7 @@ export default function HomePage() {
           >
             <img
               src="/assets/car-cover-service.jpeg"
-              alt="Premium car cover"
+              alt="Premium car body cover"
               className="h-full w-full object-cover"
               loading="lazy"
             />
@@ -265,7 +309,7 @@ export default function HomePage() {
           >
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.26em] text-accent">
-                Car cover studio
+                Car body cover studio
               </p>
               <h3 className="text-2xl sm:text-3xl font-black">
                 Secure protection with a clean, tailored fit.
@@ -296,10 +340,10 @@ export default function HomePage() {
                 to="/body-cover"
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-primary transition hover:bg-accentHover"
               >
-                Explore car cover <RiArrowRightUpLine />
+                Explore car body cover <RiArrowRightUpLine />
               </NavLink>
               <a
-                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20car%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
+                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20car%20body%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-borderSubtle bg-soft/70 px-5 py-3 text-sm font-semibold text-text transition hover:border-accent/70 hover:text-accent"
@@ -420,7 +464,7 @@ export default function HomePage() {
         </div>
       </section>
 
-<SectionTitle
+      <SectionTitle
         eyebrow="Contact"
         title="Book a slot or say hello"
         tone="wide"
@@ -439,24 +483,50 @@ export default function HomePage() {
           <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 shadow-card lg:ml-auto">
             {state.succeeded ? (
               <div className="text-center py-10">
-                <p className="text-lg font-semibold text-text">Thanks for reaching out.</p>
-                <p className="text-text-muted mt-2">We will get back to you shortly.</p>
+                <p className="text-lg font-semibold text-text">
+                  Thanks for reaching out.
+                </p>
+                <p className="text-text-muted mt-2">
+                  We will get back to you shortly.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-3">
-                  <input className={inputClass} name="name" placeholder="Name" />
-                  <input className={inputClass} name="phone" placeholder="Phone" />
+                  <input
+                    className={inputClass}
+                    name="name"
+                    placeholder="Name"
+                  />
+                  <input
+                    className={inputClass}
+                    name="phone"
+                    placeholder="Phone"
+                  />
                 </div>
-                <input className={inputClass} id="email" name="email" type="email" placeholder="Email" />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                <input
+                  className={inputClass}
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                />
+                <ValidationError
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
+                />
                 <textarea
                   className={`${inputClass} min-h-[120px]`}
                   id="message"
                   name="message"
                   placeholder="What do you need? (detailing, PPF, interior...)"
                 />
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
+                <ValidationError
+                  prefix="Message"
+                  field="message"
+                  errors={state.errors}
+                />
                 <MagneticButton
                   type="submit"
                   disabled={state.submitting}
@@ -469,7 +539,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
 
       <AnimatePresence>
         {selectedService && (

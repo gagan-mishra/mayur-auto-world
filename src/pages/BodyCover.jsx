@@ -1,60 +1,60 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { RiArrowRightUpLine, RiWhatsappFill } from 'react-icons/ri'
-import SectionTitle from '../components/SectionTitle'
-import { container, sectionRhythm } from '../shared/layout'
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { RiArrowRightUpLine, RiWhatsappFill } from "react-icons/ri";
+import SectionTitle from "../components/SectionTitle";
+import { container, sectionRhythm } from "../shared/layout";
 
 const vehicleTypes = [
-  { label: 'Hatchback', detail: 'compact hatchback' },
-  { label: 'Sedan', detail: 'sedan' },
-  { label: 'SUV', detail: 'SUV' },
-  { label: 'Custom', detail: 'custom vehicle' },
-]
+  { label: "Hatchback", detail: "compact hatchback" },
+  { label: "Sedan", detail: "sedan" },
+  { label: "SUV", detail: "SUV" },
+  { label: "Custom", detail: "custom vehicle" },
+];
 
 export default function BodyCoverPage() {
-  const coverImageRef = useRef(null)
-  const rafRef = useRef(null)
-  const [activeHotspot, setActiveHotspot] = useState(null)
+  const coverImageRef = useRef(null);
+  const rafRef = useRef(null);
+  const [activeHotspot, setActiveHotspot] = useState(null);
 
   useEffect(() => {
-    const imageEl = coverImageRef.current
-    if (!imageEl) return
+    const imageEl = coverImageRef.current;
+    if (!imageEl) return;
 
     const update = () => {
-      if (!imageEl) return
-      const rect = imageEl.getBoundingClientRect()
-      const viewport = window.innerHeight || 0
+      if (!imageEl) return;
+      const rect = imageEl.getBoundingClientRect();
+      const viewport = window.innerHeight || 0;
       const progress = Math.min(
         1,
-        Math.max(0, (viewport - rect.top) / (viewport + rect.height)),
-      )
-      const translate = (0.5 - progress) * 16
-      imageEl.style.transform = `translateY(${translate}px) scale(1.04)`
-      rafRef.current = null
-    }
+        Math.max(0, (viewport - rect.top) / (viewport + rect.height))
+      );
+      const translate = (0.5 - progress) * 16;
+      imageEl.style.transform = `translateY(${translate}px) scale(1.04)`;
+      rafRef.current = null;
+    };
 
     const onScroll = () => {
-      if (rafRef.current) return
-      rafRef.current = window.requestAnimationFrame(update)
-    }
+      if (rafRef.current) return;
+      rafRef.current = window.requestAnimationFrame(update);
+    };
 
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
       if (rafRef.current) {
-        window.cancelAnimationFrame(rafRef.current)
-        rafRef.current = null
+        window.cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 16 },
     show: { opacity: 1, y: 0 },
-  }
+  };
 
   return (
     <main className="relative bg-[#070707] pb-20">
@@ -63,21 +63,40 @@ export default function BodyCoverPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#050505] to-black/80" />
         <div className="absolute inset-0 fabric-texture opacity-50" />
         <div className={`${container} relative pt-14 sm:pt-20 pb-10 sm:pb-14`}>
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-4xl lg:max-w-5xl space-y-4">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">
-              Car Cover
+              Body Cover
             </p>
             <h1 className="text-3xl sm:text-5xl font-black tracking-wide">
-              Premium Car Covers That Actually Protect Your Car
+              Premium Body Covers That Actually Protect Your Car
             </h1>
-            <p className="text-text-muted text-base sm:text-lg">
-              Shield your vehicle from sun, dust, scratches, fading, and rain
-              with durable, all-weather car covers designed for Indian
-              conditions.
-            </p>
+            <div className="space-y-3 text-text-muted text-base sm:text-lg leading-relaxed">
+              <p className="text-text">Hello everyone!</p>
+              <p>
+                Are you tired of low-quality car covers that fail to protect
+                your precious vehicle?
+              </p>
+              <p>
+                In Tier 1 and Tier 2 cities, many car owners face the problem of
+                poor-quality covers that promise protection but end up damaging
+                your car's paint with harsh colors and materials.
+              </p>
+              <p>
+                The open parking spaces expose your vehicle to dust, sun,
+                scratches, and rust.
+              </p>
+              <p>
+                But now, Mayur Auto World brings you a premium-quality car body
+                cover that is scratch-proof, rust-proof, and made with the best
+                materials to keep your car safe and shining for years.
+              </p>
+              <p className="text-text font-semibold">
+                Choose Mayur Auto World and give your car the care it deserves!
+              </p>
+            </div>
             <div className="flex flex-wrap gap-3">
               <motion.a
-                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20car%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
+                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20want%20a%20car%20body%20cover%20for%20my%20car.%20Please%20share%20sizes%20and%20pricing."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-primary transition hover:bg-accentHover"
@@ -89,7 +108,7 @@ export default function BodyCoverPage() {
                 Get Quote <RiWhatsappFill />
               </motion.a>
               <motion.a
-                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20need%20expert%20advice%20for%20a%20car%20cover%20for%20my%20car.%20Please%20guide%20me."
+                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20need%20expert%20advice%20for%20a%20car%20body%20cover%20for%20my%20car.%20Please%20guide%20me."
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-borderSubtle bg-soft/70 px-5 py-3 text-sm font-semibold text-text transition hover:border-accent/70 hover:text-accent"
@@ -105,13 +124,15 @@ export default function BodyCoverPage() {
         </div>
       </section>
 
-      <section className={`${sectionRhythm[0]} pt-0 border-b border-borderSubtle/60`}>
+      <section
+        className={`${sectionRhythm[0]} pt-0 border-b border-borderSubtle/60`}
+      >
         <div className="relative mt-0">
           <div className="cover-bleed tilt-card relative overflow-hidden border-y border-borderSubtle/70 bg-soft/80 shadow-card aspect-[16/9]">
             <img
               ref={coverImageRef}
               src="/assets/car-cover.jpeg"
-              alt="Premium car cover"
+              alt="Premium car body cover"
               className="cover-parallax h-full w-full object-cover"
               loading="lazy"
             />
@@ -147,12 +168,14 @@ export default function BodyCoverPage() {
                 className: "cover-hotspot-left",
               },
             ].map((spot) => {
-              const isActive = activeHotspot === spot.id
+              const isActive = activeHotspot === spot.id;
               return (
                 <button
                   key={spot.id}
                   type="button"
-                  className={`cover-hotspot ${spot.style} ${spot.className ?? ""} ${isActive ? "is-active" : ""}`}
+                  className={`cover-hotspot ${spot.style} ${
+                    spot.className ?? ""
+                  } ${isActive ? "is-active" : ""}`}
                   onClick={() => setActiveHotspot(isActive ? null : spot.id)}
                   onMouseEnter={() => setActiveHotspot(spot.id)}
                   onMouseLeave={() =>
@@ -161,11 +184,15 @@ export default function BodyCoverPage() {
                   aria-label={spot.text}
                 >
                   <span className="cover-hotspot-dot" />
-                  <span className={`cover-hotspot-card ${isActive ? 'is-active' : ''}`}>
+                  <span
+                    className={`cover-hotspot-card ${
+                      isActive ? "is-active" : ""
+                    }`}
+                  >
                     {spot.text}
                   </span>
                 </button>
-              )
+              );
             })}
           </div>
         </div>
@@ -176,7 +203,7 @@ export default function BodyCoverPage() {
               Real protection
             </p>
             <h2 className="text-2xl sm:text-3xl font-black">
-              Most car covers look good in photos and fail in real life.
+              Most car body covers look good in photos and fail in real life.
             </h2>
             <p className="text-text-muted">
               Ours are built to handle heat, dust, pollution, and rain - the
@@ -205,16 +232,20 @@ export default function BodyCoverPage() {
 
       <SectionTitle
         eyebrow="Choose your vehicle"
-        title="Get a tailored car cover quote"
+        title="Get a tailored car body cover quote"
         tone="wide"
       />
-      <section className={`${sectionRhythm[0]} border-b border-borderSubtle/60`}>
-        <div className={`${container} grid gap-4 sm:grid-cols-2 lg:grid-cols-4`}>
+      <section
+        className={`${sectionRhythm[0]} border-b border-borderSubtle/60`}
+      >
+        <div
+          className={`${container} grid gap-4 sm:grid-cols-2 lg:grid-cols-4`}
+        >
           {vehicleTypes.map((type) => (
             <a
               key={type.label}
               href={`https://api.whatsapp.com/send?phone=919404984040&text=${encodeURIComponent(
-                `Hi Mayur Auto World, I want a car cover for my ${type.detail}. Please share sizing and pricing.`,
+                `Hi Mayur Auto World, I want a car body cover for my ${type.detail}. Please share sizing and pricing.`
               )}`}
               target="_blank"
               rel="noreferrer"
@@ -233,7 +264,6 @@ export default function BodyCoverPage() {
           ))}
         </div>
       </section>
-
     </main>
-  )
+  );
 }

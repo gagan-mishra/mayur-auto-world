@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation, NavLink } from 'react-router
 import NavBar from './components/NavBar'
 import HomePage from './pages/Home'
 import BodyCoverPage from './pages/BodyCover'
+import SeatCoverPage from './pages/SeatCover'
+import AccessoriesPage from './pages/Accessories'
 import ServicesPage from './pages/Services'
 import GalleryPage from './pages/Gallery'
 import AboutPage from './pages/About'
@@ -31,6 +33,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/body-cover" element={<BodyCoverPage />} />
+          <Route path="/seat-cover" element={<SeatCoverPage />} />
+          <Route path="/accessories" element={<AccessoriesPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/about" element={<AboutPage />} />

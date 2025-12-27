@@ -33,15 +33,12 @@ export default function AboutPage() {
               We Build Protection That Lasts
             </h1>
             <p className="text-text-muted text-[16px] sm:text-base">
-              We provide professional car detailing, ceramic coating, and PPF
-              installation using OEM-safe methods and proven processes. Every
-              vehicle is handled in a clean, controlled workshop, with proper
-              preparation, masking, and curing — because results depend on
-              process, not shortcuts.
-            </p>
-            <p className="text-text-muted text-[15px] sm:text-base">
-              No guesswork. No rushed jobs. Just consistent, high-quality
-              finishes.
+              Started in 2020, Mayur Auto provides complete car care and auto
+              accessory services. We are a certified Autoform seat cover dealer
+              and offer genuine products with proper fitting. Our services
+              include seat covers, accessories, denting & painting, sun films,
+              car washing, detailing, mats, and car body covers. We focus on
+              quality work, honest service, and customer satisfaction.
             </p>
           </div>
           <div className="relative rounded-3xl overflow-hidden border border-borderSubtle shadow-card about-hero-media">
@@ -76,13 +73,14 @@ export default function AboutPage() {
               About the Founder
             </h3>
             <p className="text-text-muted leading-relaxed">
-              I founded Mayur Auto World with a clear standard: no shortcuts, no
-              compromises. With over 6 years of hands-on experience in
-              professional car detailing, ceramic coating, and paint protection
-              film (PPF), I follow certified methods, OEM-safe products, and
-              controlled processes to protect every vehicle properly. Each car
-              is inspected twice—first by the technician, and finally by me. If
-              it’s not good enough for my own car, it doesn’t leave our studio.
+              Mayur Pawar is the founder of Mayur Auto World with 6+ years of
+              hands-on experience in professional car care. He holds multiple
+              industry certifications and follows proper, approved methods for
+              every service. Along with detailing and protection services, he
+              specializes in car seat covers, car body covers, and genuine auto
+              accessories, ensuring correct fitment and quality installation.
+              His focus is simple: no shortcuts, clean work, and reliable
+              results.
             </p>
             <div className="flex gap-3">
               <MagneticButton
