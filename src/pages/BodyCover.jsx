@@ -5,10 +5,30 @@ import SectionTitle from "../components/SectionTitle";
 import { container, sectionRhythm } from "../shared/layout";
 
 const vehicleTypes = [
-  { label: "Hatchback", detail: "compact hatchback" },
-  { label: "Sedan", detail: "sedan" },
-  { label: "SUV", detail: "SUV" },
-  { label: "Custom", detail: "custom vehicle" },
+  {
+    label: "Hatchback",
+    detail: "hatchback",
+    description:
+      "Designed for small cars, this cover protects your hatchback from dust, sunlight, scratches, and daily parking damage while keeping the car clean and well-maintained.",
+  },
+  {
+    label: "Sedan",
+    detail: "sedan",
+    description:
+      "Made for longer car bodies, this sedan cover helps protect paint from dust, sun exposure, and scratches, reducing wear and keeping your car looking fresh.",
+  },
+  {
+    label: "SUV",
+    detail: "SUV",
+    description:
+      "Built for larger vehicles, this SUV cover offers full-body protection from dust, heat, and outdoor exposure, helping maintain your vehicles appearance and condition.",
+  },
+  {
+    label: "Custom",
+    detail: "custom car",
+    description:
+      "Custom car covers are made to fit your cars exact size and shape, offering better protection and proper coverage compared to standard car covers.",
+  },
 ];
 
 export default function BodyCoverPage() {
@@ -71,7 +91,6 @@ export default function BodyCoverPage() {
               Premium Body Covers That Actually Protect Your Car
             </h1>
             <div className="space-y-3 text-text-muted text-base sm:text-lg leading-relaxed">
-              <p className="text-text">Hello everyone!</p>
               <p>
                 Are you tired of low-quality car covers that fail to protect
                 your precious vehicle?
@@ -108,9 +127,7 @@ export default function BodyCoverPage() {
                 Get Quote <RiWhatsappFill />
               </motion.a>
               <motion.a
-                href="https://api.whatsapp.com/send?phone=919404984040&text=Hi%20Mayur%20Auto%20World%2C%20I%20need%20expert%20advice%20for%20a%20car%20body%20cover%20for%20my%20car.%20Please%20guide%20me."
-                target="_blank"
-                rel="noreferrer"
+                href="tel:+919404984040"
                 className="inline-flex items-center gap-2 rounded-full border border-borderSubtle bg-soft/70 px-5 py-3 text-sm font-semibold text-text transition hover:border-accent/70 hover:text-accent"
                 variants={fadeUp}
                 initial="hidden"
@@ -206,8 +223,14 @@ export default function BodyCoverPage() {
               Most car body covers look good in photos and fail in real life.
             </h2>
             <p className="text-text-muted">
-              Ours are built to handle heat, dust, pollution, and rain - the
-              things that actually damage your car every day.
+              A car body cover is a simple way to protect your car when it’s
+              parked. It shields your vehicle from dust, sunlight, scratches,
+              bird droppings, and light rain. A good-quality cover helps prevent
+              paint damage and keeps your car looking clean and fresh for
+              longer. Mayur Auto World offers durable car body covers made with
+              strong, soft materials that protect your car without harming the
+              paint. It’s an easy and affordable way to take better care of your
+              vehicle every day.
             </p>
             <div className="grid gap-3 sm:grid-cols-2 text-sm text-text-muted">
               {[
@@ -255,7 +278,7 @@ export default function BodyCoverPage() {
                 {type.label}
               </p>
               <p className="text-text-muted mt-2 text-sm">
-                Get quote tailored to your {type.detail}.
+                {type.description}
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
                 Get Quote <RiArrowRightUpLine />

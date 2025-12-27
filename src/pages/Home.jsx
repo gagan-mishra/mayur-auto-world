@@ -195,16 +195,17 @@ export default function HomePage() {
                 />
               </div>
               <div className="space-y-3 text-text-muted">
-                {[
-                  "OEM-grade fit that aligns to factory seat geometry.",
-                  "Airbag-safe seams built for modern safety systems.",
-                  "Long-term durability with consistent stitch quality.",
-                ].map((line) => (
-                  <div key={line} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
-                    <p>{line}</p>
-                  </div>
-                ))}
+                <p>
+                  Autoform India is one of India's most trusted car seat cover
+                  manufacturers, known for consistent quality and precise
+                  fitment. Their seat covers are made using premium materials
+                  that feel comfortable, last long, and protect original car
+                  seats from daily wear and tear. Autoform focuses on
+                  vehicle-specific designs, ensuring the covers fit perfectly
+                  without loose edges or wrinkles. These seat covers not only
+                  improve driving comfort but also help maintain a clean,
+                  factory-finish interior look for years.
+                </p>
                 <div className="pt-6">
                   <NavLink
                     to="/seat-cover"
