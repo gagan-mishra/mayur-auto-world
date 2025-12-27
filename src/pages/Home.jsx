@@ -163,22 +163,6 @@ export default function HomePage() {
       </section>
 
       <section
-        className={`${sectionRhythm[1]} border-b border-borderSubtle/60`}
-      >
-        <div className={`${container} grid md:grid-cols-4 gap-4`}>
-          {trustBar.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl bg-soft/80 border border-borderSubtle/80 p-4"
-            >
-              <p className="text-sm font-semibold text-accent">{item.label}</p>
-              <p className="text-text mt-1 text-sm">{item.detail}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section
         className={`${sectionRhythm[0]} border-b border-borderSubtle/60 bg-[#000000]`}
       >
           <div className={`${container} space-y-4`}>
@@ -236,7 +220,7 @@ export default function HomePage() {
         }
         tone="wide"
       />
-      <section className={`${sectionRhythm[0]}`}>
+      <section className={`${sectionRhythm[0]} pb-8`}>
         <div className={`${container} grid md:grid-cols-2 gap-6`}>
           {homeServices.map((service, idx) => (
             <motion.button
@@ -287,6 +271,20 @@ export default function HomePage() {
           >
             Explore More Services <RiArrowRightUpLine />
           </NavLink>
+        </div>
+      </section>
+
+      <section className={`${sectionRhythm[1]} border-b border-borderSubtle/60 pt-6`}>
+        <div className={`${container} grid md:grid-cols-4 gap-4`}>
+          {trustBar.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-2xl bg-soft/80 border border-borderSubtle/80 p-4"
+            >
+              <p className="text-sm font-semibold text-accent">{item.label}</p>
+              <p className="text-text mt-1 text-sm">{item.detail}</p>
+            </div>
+          ))}
         </div>
       </section>
 
