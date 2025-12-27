@@ -316,14 +316,6 @@ export default function HomePage() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-primary/80 px-3 py-1 text-s uppercase tracking-[0.22em] text-text">
-                Outdoor-ready
-              </span>
-              <span className="rounded-full bg-accent/90 px-3 py-1 text-s font-semibold uppercase tracking-[0.2em] text-primary">
-                Custom sizing
-              </span>
-            </div>
           </motion.div>
           <motion.div
             initial={isMobile ? "show" : "hidden"}

@@ -26,17 +26,17 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
             <img
               src="/assets/logo.png"
               alt="Mayur Auto World"
-              className="h-[65px] w-[200px] object-contain"
+              className="h-[44px] w-[140px] sm:h-[56px] sm:w-[180px] object-contain"
             />
           </NavLink>
         </div>
-        <nav className="hidden lg:flex items-center gap-4 text-[17px] font-bold text-text">
+        <nav className="hidden lg:flex items-center gap-4 text-[15px] font-bold text-text">
           {navLinks.map((link) => (
             <React.Fragment key={link.label}>
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `transition-colors px-2.5 py-1.5 rounded-full text-[17px] font-bold ${
+                  `transition-colors px-2.5 py-1.5 rounded-full text-[15px] font-bold ${
                     isActive ? 'text-accent bg-soft/60 border border-borderSubtle' : 'text-text hover:text-accent'
                   }`
                 }
@@ -53,7 +53,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                 <div className="relative group">
                   <button
                     type="button"
-                    className={`transition-colors px-2.5 py-1.5 rounded-full text-[17px] font-bold ${
+                    className={`transition-colors px-2.5 py-1.5 rounded-full text-[15px] font-bold ${
                       isProductsActive
                         ? 'text-accent bg-soft/60 border border-borderSubtle'
                         : 'text-text hover:text-accent'
@@ -70,7 +70,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                           key={item.label}
                           to={item.path}
                           className={({ isActive }) =>
-                            `px-3 py-2 rounded-xl text-[16px] font-semibold transition ${
+                            `px-3 py-2 rounded-xl text-[14px] font-semibold transition ${
                               isActive
                                 ? 'text-accent bg-soft/70'
                                 : 'text-text hover:text-accent hover:bg-soft/50'
@@ -141,7 +141,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `block text-[17px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                      `block text-[13px] sm:text-[15px] font-bold uppercase tracking-[0.2em] transition-colors ${
                         isActive ? 'text-accent' : 'text-text hover:text-accent'
                       }`
                     }
@@ -159,7 +159,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                     <div className="space-y-2">
                       <button
                         type="button"
-                        className={`flex items-center justify-between w-full text-[17px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                        className={`flex items-center justify-between w-full text-[13px] sm:text-[15px] font-bold uppercase tracking-[0.2em] transition-colors ${
                         isProductsActive ? 'text-accent' : 'text-text hover:text-accent'
                         }`}
                         onClick={() => setIsProductsOpen((prev) => !prev)}
@@ -176,7 +176,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                               key={item.label}
                               to={item.path}
                               className={({ isActive }) =>
-                                `block text-[14px] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                                `block text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.2em] transition-colors ${
                                   isActive ? 'text-accent' : 'text-text hover:text-accent'
                                 }`
                               }
