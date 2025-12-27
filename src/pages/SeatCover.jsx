@@ -11,7 +11,7 @@ export default function SeatCoverPage() {
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Seat Covers</p>
             <h1 className="text-3xl sm:text-5xl font-black tracking-wide">
               Premium Seat Covers by{''}
-              <span className="rounded-md px-2 py-1 text-yellow-300">
+              <span className="rounded-md px-2 py-1 text-accent">
                Autoform
               </span>
             </h1>
@@ -31,7 +31,11 @@ export default function SeatCoverPage() {
 
       <SectionTitle
         eyebrow="Why Autoform"
-        title="Trusted by us for consistent fit and finish"
+        title={
+          <>
+            Trusted by us for consistent <span className='text-accent'> fit </span> and <span className="text-accent">finish</span>
+          </>
+        }
         tone="wide"
       />
       <section className={`${sectionRhythm[0]} bg-[#000000]`}>
@@ -45,17 +49,18 @@ export default function SeatCoverPage() {
                   className="w-full h-auto object-contain"
                 />
               </div>
-              <div className="space-y-3 text-text-muted">
-                {[
-                  'OEM-grade fit that follows factory seat geometry.',
-                  'Airbag-safe seams engineered for modern safety systems.',
-                  'Long-term durability with consistent stitch quality.',
-                ].map((point) => (
-                  <div key={point} className="flex items-start gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-accent" />
-                    <p>{point}</p>
-                  </div>
-                ))}
+              <div className="space-y-3 text-text">
+                <p>
+                  Autoform India is one of India's most trusted car seat cover
+                  manufacturers, known for consistent quality and precise
+                  fitment. Their seat covers are made using premium materials
+                  that feel comfortable, last long, and protect original car
+                  seats from daily wear and tear. Autoform focuses on
+                  vehicle-specific designs, ensuring the covers fit perfectly
+                  without loose edges or wrinkles. These seat covers not only
+                  improve driving comfort but also help maintain a clean,
+                  factory-finish interior look for years.
+                </p>
               </div>
             </div>
           </div>
@@ -140,8 +145,8 @@ export default function SeatCoverPage() {
                 <div className="p-5 space-y-3 flex flex-col flex-1">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold tracking-wide text-text">{item.title}</h3>
-                    <p className="text-sm text-text-muted">{item.detail}</p>
-                    <p className="text-xs text-text-muted">{item.benefit}</p>
+                    <p className="text-sm text-text">{item.detail}</p>
+                    <p className="text-xs text-text">{item.benefit}</p>
                   </div>
                   <a
                     href={`https://api.whatsapp.com/send?phone=919404984040&text=${encodeURIComponent(
@@ -157,7 +162,7 @@ export default function SeatCoverPage() {
               </div>
             ))}
           </div>
-          <div className="rounded-2xl border border-borderSubtle/60 bg-soft/60 px-5 py-4 text-sm text-text-muted flex items-center gap-3">
+          <div className="rounded-2xl border border-borderSubtle/60 bg-soft/60 px-5 py-4 text-sm text-text flex items-center gap-3">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-borderSubtle/70 bg-primary/80 text-accent">
               ✓
             </span>

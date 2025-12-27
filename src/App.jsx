@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+﻿import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, NavLink } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import HomePage from './pages/Home'
@@ -53,7 +53,7 @@ export default function App() {
           <div className={`${container} relative py-8`}>
             <div className="grid gap-8 lg:grid-cols-[1.2fr,1fr] items-start">
               <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-borderSubtle/80 bg-primary/85 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-text-muted shadow-glow">
+                <div className="inline-flex items-center gap-2 rounded-full border border-borderSubtle/80 bg-primary/85 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-text shadow-glow">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse-slow" />
                   Detail | Protect | Restore
                 </div>
@@ -62,7 +62,7 @@ export default function App() {
                     <span className="text-[#ff3b30] font-black">Mayur</span> Auto World
                   </div>
                 </div>
-                <p className="text-sm font-semibold text-text-muted">
+                <p className="text-sm font-semibold text-text">
                   Where your car feels brand new every day
                 </p>
               </div>
@@ -74,7 +74,7 @@ export default function App() {
                       <NavLink
                         key={link.label}
                         to={link.path}
-                        className="group inline-flex items-center gap-2 font-semibold text-text-muted transition hover:text-text"
+                        className="group inline-flex items-center gap-2 font-semibold text-text transition hover:text-text"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-accent/70 transition group-hover:bg-accent" />
@@ -102,7 +102,7 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 border-t border-borderSubtle/70 pt-5 text-center text-xs font-semibold text-text-muted">
+            <div className="mt-8 border-t border-borderSubtle/70 pt-5 text-center text-xs font-semibold text-text">
               <p>© 2025 Mayur Auto World.</p>
             </div>
           </div>

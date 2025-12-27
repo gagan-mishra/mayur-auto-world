@@ -39,6 +39,10 @@ export default function BodyCoverPage() {
   useEffect(() => {
     const imageEl = coverImageRef.current;
     if (!imageEl) return;
+    if (window.innerWidth < 768) {
+      imageEl.style.transform = "none";
+      return;
+    }
 
     const update = () => {
       if (!imageEl) return;
@@ -88,9 +92,9 @@ export default function BodyCoverPage() {
               Body Cover
             </p>
             <h1 className="text-3xl sm:text-5xl font-black tracking-wide">
-              Premium Body Covers That Actually Protect Your Car
+             <span className="text-accent">Genuine</span> Body Covers That Actually <span className="text-accent">Protect</span> Your Car
             </h1>
-            <div className="space-y-3 text-text-muted text-base sm:text-lg leading-relaxed">
+            <div className="space-y-3 text-text text-base sm:text-lg leading-relaxed">
               <p>
                 Are you tired of low-quality car covers that fail to protect
                 your precious vehicle?
@@ -159,12 +163,12 @@ export default function BodyCoverPage() {
               {
                 id: "sun",
                 text: "Sun Damage - Prevents paint fade and dashboard cracks",
-                style: "left-[20%] top-[40%]",
+                style: "left-[10%] top-[40%]",
               },
               {
                 id: "scratches",
                 text: "Scratches & Scuffs - Reduces minor surface damage",
-                style: "left-[34%] top-[40%]",
+                style: "left-[34%] top-[20%]",
               },
               {
                 id: "oxidation",
@@ -175,13 +179,13 @@ export default function BodyCoverPage() {
               {
                 id: "dust",
                 text: "Dust & Dirt - Saves washing time and maintenance cost",
-                style: "left-[64%] top-[40%]",
+                style: "left-[64%] top-[48%]",
                 className: "cover-hotspot-left",
               },
               {
                 id: "water",
                 text: "Water Damage - Protects during rain and moisture exposure",
-                style: "left-[78%] top-[40%]",
+                style: "left-[78%] top-[69%]",
                 className: "cover-hotspot-left",
               },
             ].map((spot) => {
@@ -215,39 +219,60 @@ export default function BodyCoverPage() {
         </div>
 
         <div className={`${container} mt-8 space-y-6`}>
-          <div className="space-y-4 max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.24em] text-accent">
-              Real protection
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-black">
-              Most car body covers look good in photos and fail in real life.
-            </h2>
-            <p className="text-text-muted">
-              A car body cover is a simple way to protect your car when it’s
-              parked. It shields your vehicle from dust, sunlight, scratches,
-              bird droppings, and light rain. A good-quality cover helps prevent
-              paint damage and keeps your car looking clean and fresh for
-              longer. Mayur Auto World offers durable car body covers made with
-              strong, soft materials that protect your car without harming the
-              paint. It’s an easy and affordable way to take better care of your
-              vehicle every day.
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2 text-sm text-text-muted">
-              {[
-                "Heavy-duty fabric for long-term use",
-                "Protects paint, polish, and interior",
-                "Easy to fit, remove, and store",
-                "Suitable for daily outdoor parking",
-                "Tested for Indian weather, not showroom conditions",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 rounded-2xl bg-soft/70 px-4 py-3"
-                >
-                  <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
-                  <span>{item}</span>
-                </div>
-              ))}
+          <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr] items-center">
+            <div className="space-y-4 max-w-3xl">
+              <p className="text-xs uppercase tracking-[0.24em] text-accent">
+                Real protection
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-black">
+                Built to{" "}
+                protect every day with a{" "}
+                <span className="text-accent">real-world fit</span>.
+              </h2>
+              <p className="text-text">
+                A car body cover is a simple way to protect your car when it's
+                parked. It shields your vehicle from dust, sunlight, scratches,
+                bird droppings, and light rain. A good-quality cover helps prevent
+                paint damage and keeps your car looking clean and fresh for
+                longer. Mayur Auto World offers durable car body covers made with
+                strong, soft materials that protect your car without harming the
+                paint. It's an easy and affordable way to take better care of
+                your vehicle every day.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2 text-sm text-text">
+                {[
+                  "Heavy-duty fabric for long-term use",
+                  "Protects paint, polish, and interior",
+                  "Easy to fit, remove, and store",
+                  "Suitable for daily outdoor parking",
+                  "Tested for Indian weather, not showroom conditions",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 rounded-2xl bg-soft/70 px-4 py-3"
+                  >
+                    <span className="mt-1 h-2 w-2 rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-3xl border border-borderSubtle/70 bg-soft/80 shadow-card">
+              <img
+                src="/assets/body-cover-inner-outer.jpeg"
+                alt="Inner and outer layers of a car body cover"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-text">
+                <span className="rounded-full border border-borderSubtle/70 bg-primary/80 px-3 py-1">
+                  Soft inner lining
+                </span>
+                <span className="rounded-full border border-borderSubtle/70 bg-primary/80 px-3 py-1">
+                  Weather-ready shell
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -277,7 +302,7 @@ export default function BodyCoverPage() {
               <p className="text-xs uppercase tracking-[0.22em] text-accent">
                 {type.label}
               </p>
-              <p className="text-text-muted mt-2 text-sm">
+              <p className="text-text mt-2 text-sm">
                 {type.description}
               </p>
               <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">

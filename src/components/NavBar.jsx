@@ -12,7 +12,7 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
     { label: 'Body Cover', path: '/body-cover' },
     { label: 'Seat Cover', path: '/seat-cover' },
   ]
-  const isProductsActive = ['/body-cover', '/seat-cover', '/accessories'].includes(pathname)
+  const isProductsActive = ['/body-cover', '/seat-cover'].includes(pathname)
 
   return (
     <div className="sticky top-0 z-40 relative bg-primary/85 backdrop-blur-xl border-b border-borderSubtle/70 shadow-lg shadow-black/30">
@@ -23,24 +23,21 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="inline-flex items-center gap-3 text-base sm:text-lg font-black uppercase tracking-[0.24em] text-text hover:text-accent transition"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-borderSubtle/70 bg-primary/80 shadow-card">
-              <img
-                src="/assets/tab-logo.PNG"
-                alt="Mayur Auto World logo"
-                className="h-6 w-6 object-contain"
-              />
-            </span>
-            <span className="text-[#ff3b30] font-black">Mayur</span> Auto World
+            <img
+              src="/assets/logo.png"
+              alt="Mayur Auto World"
+              className="h-[65px] w-[200px] object-contain"
+            />
           </NavLink>
         </div>
-        <nav className="hidden lg:flex items-center gap-4 text-sm font-semibold text-text-muted">
+        <nav className="hidden lg:flex items-center gap-4 text-[17px] font-bold text-text">
           {navLinks.map((link) => (
             <React.Fragment key={link.label}>
               <NavLink
                 to={link.path}
                 className={({ isActive }) =>
-                  `transition-colors px-2.5 py-1.5 rounded-full text-sm ${
-                    isActive ? 'text-accent bg-soft/60 border border-borderSubtle' : 'hover:text-accent'
+                  `transition-colors px-2.5 py-1.5 rounded-full text-[17px] font-bold ${
+                    isActive ? 'text-accent bg-soft/60 border border-borderSubtle' : 'text-text hover:text-accent'
                   }`
                 }
                 style={{ whiteSpace: 'nowrap' }}
@@ -52,14 +49,14 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
               >
                 {link.label}
               </NavLink>
-              {link.label === 'Home' && (
+              {link.label === 'Services' && (
                 <div className="relative group">
                   <button
                     type="button"
-                    className={`transition-colors px-2.5 py-1.5 rounded-full text-sm ${
+                    className={`transition-colors px-2.5 py-1.5 rounded-full text-[17px] font-bold ${
                       isProductsActive
                         ? 'text-accent bg-soft/60 border border-borderSubtle'
-                        : 'hover:text-accent'
+                        : 'text-text hover:text-accent'
                     }`}
                     style={{ whiteSpace: 'nowrap' }}
                   >
@@ -73,10 +70,10 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                           key={item.label}
                           to={item.path}
                           className={({ isActive }) =>
-                            `px-3 py-2 rounded-xl text-sm transition ${
+                            `px-3 py-2 rounded-xl text-[16px] font-semibold transition ${
                               isActive
                                 ? 'text-accent bg-soft/70'
-                                : 'text-text-muted hover:text-accent hover:bg-soft/50'
+                                : 'text-text hover:text-accent hover:bg-soft/50'
                             }`
                           }
                         >
@@ -144,8 +141,8 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                   <NavLink
                     to={link.path}
                     className={({ isActive }) =>
-                      `block text-sm uppercase tracking-[0.2em] transition-colors ${
-                        isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
+                      `block text-[17px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                        isActive ? 'text-accent' : 'text-text hover:text-accent'
                       }`
                     }
                     onClick={() => {
@@ -158,18 +155,18 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                   >
                     {link.label}
                   </NavLink>
-                  {link.label === 'Home' && (
+                  {link.label === 'Services' && (
                     <div className="space-y-2">
                       <button
                         type="button"
-                        className={`flex items-center justify-between w-full text-sm uppercase tracking-[0.2em] transition-colors ${
-                          isProductsActive ? 'text-accent' : 'text-text-muted hover:text-accent'
+                        className={`flex items-center justify-between w-full text-[17px] font-bold uppercase tracking-[0.2em] transition-colors ${
+                        isProductsActive ? 'text-accent' : 'text-text hover:text-accent'
                         }`}
                         onClick={() => setIsProductsOpen((prev) => !prev)}
                       >
                         Products
-                        <span className={`text-xs transition ${isProductsOpen ? 'text-accent' : 'text-text-muted'}`}>
-                          {isProductsOpen ? '−' : '+'}
+                        <span className={`text-xs transition ${isProductsOpen ? 'text-accent' : 'text-text'}`}>
+                          {isProductsOpen ? '-' : '+'}
                         </span>
                       </button>
                       {isProductsOpen && (
@@ -179,8 +176,8 @@ export default function NavBar({ navLinks, isMenuOpen, setIsMenuOpen }) {
                               key={item.label}
                               to={item.path}
                               className={({ isActive }) =>
-                                `block text-xs uppercase tracking-[0.2em] transition-colors ${
-                                  isActive ? 'text-accent' : 'text-text-muted hover:text-accent'
+                                `block text-[14px] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                                  isActive ? 'text-accent' : 'text-text hover:text-accent'
                                 }`
                               }
                               onClick={() => {

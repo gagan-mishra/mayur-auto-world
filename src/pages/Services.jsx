@@ -8,7 +8,11 @@ import MagneticButton from '../components/MagneticButton'
 export default function ServicesPage() {
   return (
     <main className="pb-12">
-      <SectionTitle eyebrow="Services" title="Everything your build needs" tone="wide" />
+      <SectionTitle eyebrow="Services" title={
+          <>
+            Our <span className="text-accent">Services</span>
+          </>
+        } tone="wide" />
       <section className={`${sectionRhythm[0]}`}>
         <div className={`${container} grid md:grid-cols-2 gap-6 text-[16px] sm:text-base font-semibold`}>
           {servicesPageServices.map((service) => (
@@ -18,8 +22,8 @@ export default function ServicesPage() {
                 <h3 className="text-xl sm:text-[22px] font-black flex items-center gap-2 tracking-wide">
                   {service.title} <span className="h-0.5 w-6 bg-accent inline-block" />
                 </h3>
-                <p className="text-text-muted">{service.desc}</p>
-                <div className="space-y-2 text-text-muted text-sm">
+                <p className="text-text">{service.desc}</p>
+                <div className="space-y-2 text-text text-sm">
                   {service.inclusions.map((inc) => (
                     <div key={inc} className="flex items-center gap-2">
                       <RiCheckFill className="text-accent" /> {inc}

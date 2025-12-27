@@ -11,7 +11,15 @@ export default function ContactPage() {
 
   return (
     <main>
-      <SectionTitle eyebrow="Contact" title="Book a slot or say hello" tone="wide" />
+      <SectionTitle
+        eyebrow="Contact"
+        title={
+          <>
+            Book a slot or say <span className="text-accent">hello</span>
+          </>
+        }
+        tone="wide"
+      />
       <section className="pb-20 pt-10">
         <div className={`${container} grid lg:grid-cols-2 gap-6`}>
           <div className="rounded-3xl border border-borderSubtle bg-soft/70 p-6 shadow-card">

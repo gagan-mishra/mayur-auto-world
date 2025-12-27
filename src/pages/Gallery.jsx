@@ -16,7 +16,11 @@ export default function GalleryPage() {
     <main>
       <SectionTitle
         eyebrow="Gallery"
-        title="Finished bays & details"
+        title={
+          <>
+            Our <span className="text-accent">Store</span>
+          </>
+        }
         tone="wide"
       />
 

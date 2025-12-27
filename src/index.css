@@ -576,7 +576,7 @@ body {
 
 @media (min-width: 1024px) {
   .about-snap {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   .about-snap-section {
@@ -584,7 +584,6 @@ body {
     display: flex;
     align-items: center;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 .fabric-texture {
@@ -635,7 +634,6 @@ body {
 
 .cover-parallax {
   will-change: transform;
-  transition: transform 0.2s ease-out;
 }
 
 .sheen-once {

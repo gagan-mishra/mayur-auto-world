@@ -42,6 +42,13 @@ export default function HomePage() {
 
   useEffect(() => {
     const updateProgress = () => {
+      if (window.innerWidth < 640) {
+        if (progressRef.current) {
+          progressRef.current.style.width = "0%";
+        }
+        rafRef.current = null;
+        return;
+      }
       const scrollable =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = window.scrollY;
@@ -112,7 +119,7 @@ export default function HomePage() {
               variants={fadeIn}
               className="max-w-2xl space-y-3 text-[16px] sm:text-base font-semibold"
             >
-              <p className="text-sm uppercase tracking-[0.28em] text-text-muted">
+              <p className="text-sm uppercase tracking-[0.28em] text-text">
                 Protection Studio
               </p>
               <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-wide">
@@ -120,7 +127,7 @@ export default function HomePage() {
                 <span className="text-accent">every day</span>
               </h1>
               <div className="h-0.5 w-16 bg-accent" />
-              <p className="text-text-muted text-base sm:text-lg">
+              <p className="text-text text-base sm:text-lg">
                 Everything Your Car Needs - From car
                 body cover and seat covers to PPF and accessories, we help you
                 protect, upgrade, and personalize your car the right way.
@@ -145,7 +152,7 @@ export default function HomePage() {
                   <div className="text-text transition-colors duration-300 group-hover:text-primary">
                     {item.icon}
                   </div>
-                  <p className="text-sm text-text-muted transition-colors duration-300 group-hover:text-primary">
+                  <p className="text-sm text-text transition-colors duration-300 group-hover:text-primary">
                     {item.label}
                   </p>
                 </div>
@@ -165,7 +172,7 @@ export default function HomePage() {
               className="rounded-2xl bg-soft/80 border border-borderSubtle/80 p-4"
             >
               <p className="text-sm font-semibold text-accent">{item.label}</p>
-              <p className="text-text-muted mt-1 text-sm">{item.detail}</p>
+              <p className="text-text mt-1 text-sm">{item.detail}</p>
             </div>
           ))}
         </div>
@@ -176,7 +183,7 @@ export default function HomePage() {
       >
           <div className={`${container} space-y-4`}>
           <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.24em] text-accent">
+            <p className="text-s uppercase tracking-[0.24em] text-accent">
               Trusted partner
             </p>
             <p className="text-lg font-semibold text-text">
@@ -194,7 +201,7 @@ export default function HomePage() {
                   className="w-full h-auto object-contain"
                 />
               </div>
-              <div className="space-y-3 text-text-muted">
+              <div className="space-y-3 text-text">
                 <p>
                   Autoform India is one of India's most trusted car seat cover
                   manufacturers, known for consistent quality and precise
@@ -220,7 +227,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <SectionTitle eyebrow="Services" title="What we do" tone="wide" />
+      <SectionTitle
+        eyebrow="Services"
+        title={
+          <>
+            What We <span className="text-accent">Do</span>
+          </>
+        }
+        tone="wide"
+      />
       <section className={`${sectionRhythm[0]}`}>
         <div className={`${container} grid md:grid-cols-2 gap-6`}>
           {homeServices.map((service, idx) => (
@@ -249,10 +264,10 @@ export default function HomePage() {
                   {service.title}{" "}
                   <span className="h-0.5 w-6 bg-accent inline-block" />
                 </h3>
-                <p className="text-text-muted sm:text-base text-[15px]">
+                <p className="text-text sm:text-base text-[15px]">
                   {service.desc}
                 </p>
-                <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text-muted">
+                <div className="flex items-center gap-2 text-sm sm:text-[15px] text-text">
                   <RiCheckFill className="text-accent" /> Tap to view inclusions
                 </div>
               </div>
@@ -265,11 +280,23 @@ export default function HomePage() {
             </motion.button>
           ))}
         </div>
+        <div className={`${container} mt-6 flex justify-start`}>
+          <NavLink
+            to="/services"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-accentHover"
+          >
+            Explore More Services <RiArrowRightUpLine />
+          </NavLink>
+        </div>
       </section>
 
       <SectionTitle
         eyebrow="Car Body Cover"
-        title="Protection when your car is parked"
+        title={
+          <>
+          <span className="text-accent">Protection </span> When Your Car Is Parked
+          </>
+        }
         tone="wide"
       />
       <section className={`${sectionRhythm[0]}`}>
@@ -285,17 +312,17 @@ export default function HomePage() {
             className="relative overflow-hidden rounded-3xl border border-borderSubtle bg-soft/70 shadow-card"
           >
             <img
-              src="/assets/car-cover-service.jpeg"
+              src="/assets/car-cover.jpeg"
               alt="Premium car body cover"
               className="h-full w-full object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-primary/80 px-3 py-1 text-xs uppercase tracking-[0.22em] text-text">
+              <span className="rounded-full bg-primary/80 px-3 py-1 text-s uppercase tracking-[0.22em] text-text">
                 Outdoor-ready
               </span>
-              <span className="rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="rounded-full bg-accent/90 px-3 py-1 text-s font-semibold uppercase tracking-[0.2em] text-primary">
                 Custom sizing
               </span>
             </div>
@@ -315,12 +342,12 @@ export default function HomePage() {
               <h3 className="text-2xl sm:text-3xl font-black">
                 Secure protection with a clean, tailored fit.
               </h3>
-              <p className="text-text-muted text-base">
+              <p className="text-text text-base">
                 A premium cover that shields paint, resists dust, and stays in
                 place. Sized to your car with a soft inner lining.
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 gap-3 text-sm text-text-muted">
+            <div className="grid sm:grid-cols-2 gap-3 text-sm text-text">
               {[
                 "Paint-safe inner lining",
                 "Breathable fabric build",
@@ -362,7 +389,7 @@ export default function HomePage() {
         <div className={`${container} relative`}>
           <div className="flex items-center justify-between gap-3 mb-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.24em] text-accent">
+              <p className="text-s uppercase tracking-[0.24em] text-accent">
                 Store visit
               </p>
             </div>
@@ -433,7 +460,7 @@ export default function HomePage() {
         <div className={`${container} space-y-4`}>
           <div className="flex items-center justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.24em] text-accent">
+              <p className="text-s uppercase tracking-[0.24em] text-accent">
                 Videos
               </p>
               <p className="text-lg font-semibold text-text">
@@ -441,8 +468,9 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="videos-scroll flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-3">
+          <div className="videos-scroll flex gap-4 overflow-x-auto pb-2 sm:grid sm:overflow-visible sm:grid-cols-2 lg:grid-cols-4">
             {[
+              "https://www.youtube.com/embed/l5t-S_EeulU",
               "https://www.youtube.com/embed/F4ZKi55_A2M",
               "https://www.youtube.com/embed/voCLD598GJM",
               "https://www.youtube.com/embed/XDlMrVwobrk",
@@ -487,7 +515,7 @@ export default function HomePage() {
                 <p className="text-lg font-semibold text-text">
                   Thanks for reaching out.
                 </p>
-                <p className="text-text-muted mt-2">
+                <p className="text-text mt-2">
                   We will get back to you shortly.
                 </p>
               </div>

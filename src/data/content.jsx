@@ -29,20 +29,9 @@ export const homeServices = [
     title: 'Car Body Cover',
     desc: 'Breathable, paint-safe covers for indoor/outdoor storage.',
     icon: <RiSparkling2Fill className="text-text" />,
-    image: '/assets/car-cover-service.jpeg',
+    image: '/assets/car-cover.jpeg',
     inclusions: ['Custom sizing', 'Soft liner', 'UV + dust protection', 'Tie-downs', 'Logo placement'],
   },
-  {
-    title: 'Body Shop Denting & Painting',
-    desc: 'Color-matched repairs with OEM-grade finish and glossy clear.',
-    icon: <RiPaintFill className="text-text" />,
-    image: '/assets/gallery/gallery8.jpeg',
-    inclusions: ['Panel prep + filling', 'Color matching', 'Baked clear coat', 'Insurance-friendly estimates', 'Post-paint polish'],
-  },
-]
-
-export const servicesPageServices = [
-  ...homeServices,
   {
     title: 'Full Body Painting',
     desc: 'Complete respray with matched primer, base, and deep clear for a factory reset.',
@@ -50,6 +39,18 @@ export const servicesPageServices = [
     image: '/assets/full-body-painting.jpeg',
     inclusions: ['Surface prep + masking', 'Color-match mixing', 'Primer + base + clear', 'Baked finish', 'Final polish & inspection'],
   },
+]
+
+export const servicesPageServices = [
+  ...homeServices,
+  {
+    title: 'Body Shop Denting & Painting',
+    desc: 'Color-matched repairs with OEM-grade finish and glossy clear.',
+    icon: <RiPaintFill className="text-text" />,
+    image: '/assets/gallery/gallery8.jpeg',
+    inclusions: ['Panel prep + filling', 'Color matching', 'Baked clear coat', 'Insurance-friendly estimates', 'Post-paint polish'],
+  },
+  
   {
     title: 'Car Wash',
     desc: 'Two-bucket wash, foam pre-soak, and microfiber dry.',
@@ -70,13 +71,6 @@ export const servicesPageServices = [
     icon: <RiSparkling2Fill className="text-text" />,
     image: '/assets/accessories.jpeg',
     inclusions: ['Ambient + footwell lights', 'Dash cams', 'Phone mounts', 'Wire tuck + fuse tap', 'OEM-look finish'],
-  },
-  {
-    title: 'Sun Control Films',
-    desc: 'Heat rejection tints installed with clean edges.',
-    icon: <RiShieldStarFill className="text-text" />,
-    image: '/assets/sun-control-film.jpeg',
-    inclusions: ['Heat + UV rejection', 'Edge-to-edge install', 'Rear screen seamless', 'Multiple VLT options', 'Warranty backed'],
   },
 ]
 
@@ -159,8 +153,8 @@ export const beforeAfter = {
 
 export const navLinks = [
   { label: 'Home', path: '/' },
+  { label: 'About Us', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Gallery', path: '/gallery' },
-  { label: 'About Us', path: '/about' },
   { label: 'Contact Us', path: '/contact' },
 ]
